@@ -11,24 +11,28 @@ const services = [
     title: "废旧电缆回收",
     tags: ["铜芯电缆", "铝芯电缆", "高压电缆"],
     desc: "面向工厂搬迁、园区改造、工地余料与配电房更新场景，提供废旧电缆上门回收与现场评估，按当日铜价出价，透明不压价。",
+    href: "/cable-recycling/",
   },
   {
     num: "02",
     title: "二手变压器回收",
     tags: ["油浸式", "干式", "开关柜"],
     desc: "收购油浸式变压器、干式变压器及配套开关柜、母线槽等配电设备，铭牌确认、上门看货、合理估价全流程服务。",
+    href: "/transformer-recycling/",
   },
   {
     num: "03",
     title: "二手变压器出售",
     tags: ["多规格现货", "参数核对", "区域配送"],
     desc: "提供多品牌、多容量规格二手变压器展示对接，支持参数核对、现场看货与区域配送，满足工厂扩产或临时用电采购需求。",
+    href: "/transformer-recycling/",
   },
   {
     num: "04",
     title: "工厂拆除设备处理",
     tags: ["整厂搬迁", "车间清退", "配电房拆改"],
     desc: "覆盖工厂搬迁、车间清退、配电房拆改等场景，提供整厂电气设备打包评估与快速处置，助企业高效完成资产变现与场地腾退。",
+    href: "/factory-demolition/",
   },
 ];
 
@@ -371,8 +375,8 @@ export default function App() {
                 </div>
                 <h3 className="mt-3 text-xl font-bold text-white">{svc.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-zinc-500">{svc.desc}</p>
-                <a href="#contact" className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 opacity-0 group-hover:opacity-100 transition">
-                  立即咨询
+                <a href={svc.href || "#contact"} className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 opacity-0 group-hover:opacity-100 transition">
+                  查看详情
                   <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5">
                     <path fillRule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clipRule="evenodd"/>
                   </svg>
