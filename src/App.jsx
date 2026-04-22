@@ -41,7 +41,22 @@ const advantages = [
   { icon: "💬", title: "微信图片沟通", desc: "发送铭牌图与实景图，快速预判价值，省去往返成本。" },
 ];
 
-const regions = ["上海","苏州","昆山","无锡","常州","南京","杭州","宁波","嘉兴","湖州","合肥","芜湖","马鞍山","滁州"];
+const regions = [
+  { name: "上海",   slug: "shanghai"  },
+  { name: "苏州",   slug: "suzhou"    },
+  { name: "昆山",   slug: "kunshan"   },
+  { name: "无锡",   slug: "wuxi"      },
+  { name: "常州",   slug: "changzhou" },
+  { name: "南京",   slug: "nanjing"   },
+  { name: "杭州",   slug: "hangzhou"  },
+  { name: "宁波",   slug: "ningbo"    },
+  { name: "嘉兴",   slug: "jiaxing"   },
+  { name: "湖州",   slug: "huzhou"    },
+  { name: "合肥",   slug: "hefei"     },
+  { name: "芜湖",   slug: "wuhu"      },
+  { name: "马鞍山", slug: "maanshan"  },
+  { name: "滁州",   slug: "chuzhou"   },
+];
 
 const cases = [
   {
@@ -53,8 +68,8 @@ const cases = [
     large: true,
   },
   {
-    img: "/image/新兴电力回收-大型电缆盘收购.png",
-    alt: "废旧电缆高价回收——大型电缆盘收购现场",
+    img: "/image/新兴电力回收-电缆盘回收现场.png",
+    alt: "废旧电缆高价回收——电缆盘回收现场称重结算",
     badge: "电缆回收",
     title: "废旧电缆高价回收对接",
     desc: "工地余料、库存积压、拆除铜芯铝芯及高压电缆回收，上门称重，参照铜价，现场结算。",
@@ -72,9 +87,9 @@ const cases = [
 
 /* 作业现场图库 */
 const gallery = [
-  { src: "/image/新兴电力回收-电缆盘回收现场.png",    label: "电缆盘回收现场" },
-  { src: "/image/新兴电力回收-配电柜回收现场.png",    label: "配电柜回收现场" },
+  { src: "/image/新兴电力回收-大型电缆盘收购.png",    label: "大型电缆盘收购" },
   { src: "/image/新兴电力回收-废旧电缆回收堆场.png",  label: "废旧电缆堆场" },
+  { src: "/image/新兴电力回收-配电柜回收现场.png",    label: "配电柜回收现场" },
   { src: "/image/新兴电力回收-电缆整理打包.png",      label: "电缆整理打包" },
   { src: "/image/新兴电力回收-散装电线回收.png",      label: "散装电线回收" },
   { src: "/image/新兴电力回收-电机水泵回收.png",      label: "电机水泵回收" },
@@ -89,11 +104,61 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "废旧电缆回收价格怎么算？",      a: "废旧电缆回收价格主要根据铜铝含量、线缆规格型号及当日市场铜价综合评估。我们提供免费上门看货服务，现场给出准确报价，价格透明，不压价。" },
-  { q: "二手变压器回收需要提供哪些信息？", a: "建议提前拍摄变压器铭牌照片、外观实景图及台数，通过微信或电话发给我们。我们会根据品牌、容量、使用年限快速给出初步收购意向，支持上门看货确认最终价格。" },
-  { q: "服务范围覆盖哪些城市？",         a: "主要覆盖长三角地区及安徽省，包括上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州，以及安徽省合肥、芜湖、马鞍山、滁州等主要城市均可上门服务。" },
-  { q: "工厂搬迁设备处理多久可以上门？",  a: "电话或微信沟通需求并发送设备图片后，我们通常可在1–3个工作日内安排上门评估，急单可优先协调，根据项目规模灵活排期。" },
-  { q: "支持油浸式和干式变压器回收吗？",  a: "支持。我们回收油浸式变压器、干式变压器及配套开关柜、配电柜、母线槽等配电设备，无论单台还是整套配电房均可咨询，不限规模。" },
+  { q: "废旧电缆回收价格怎么算？一米多少钱？", a: "废旧电缆回收按重量结算而非长度，价格主要取决于铜/铝芯含量、线径、屏蔽结构及当日长江有色铜价（Cu1 现货）。以 YJV 3×95+1×50 铜芯电缆为例，每米净铜约 3.4kg，按当日铜价再根据回收系数折算。我们提供免费上门称重 + 现场出价，价格透明不压价。" },
+  { q: "二手变压器回收需要提供哪些信息？", a: "建议提前拍摄变压器铭牌照片（含型号、容量、电压、生产厂家、出厂日期）、外观实景图及台数，通过微信或电话发给我们。我们会根据品牌、容量、使用年限、外观状态快速给出初步收购意向，支持上门看货确认最终价格。" },
+  { q: "服务范围覆盖哪些城市？", a: "主要覆盖长三角地区及安徽省，包括上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州，以及安徽省合肥、芜湖、马鞍山、滁州等主要城市均可上门服务。非核心城市的整厂拆除项目也可来电协商。" },
+  { q: "工厂搬迁设备处理多久可以上门？", a: "电话或微信沟通需求并发送设备图片后，我们通常可在 1–3 个工作日内安排上门评估；急单可优先协调，根据项目规模灵活排期。长三角核心区域最快 24 小时内到场。" },
+  { q: "支持油浸式和干式变压器回收吗？", a: "支持。我们回收 S9/S11/S13/SCB10/SCB13 等油浸式与干式变压器，及配套开关柜（GGD、GCK、KYN28）、配电柜、母线槽等配电设备，无论单台还是整套配电房均可咨询，不限规模。" },
+  { q: "铜芯电缆与铝芯电缆回收价差大吗？", a: "差距较大。铜芯按净铜重量 × 当日铜价 × 回收系数结算，铝芯按净铝重量 × 当日铝价 × 回收系数结算。目前铜价约为铝价的 3–4 倍，且铜芯电缆外护套、钢带铠装等附件也会影响净含金属量，建议现场称重评估更准确。" },
+  { q: "回收过程是否开具正规单据？", a: "会。我们提供正规回收交接单、过磅单、收据/发票（根据客户需求类型开具），资产处置流程合规，方便企业财务做账及内部审计留痕。大宗业务可签订正式合同。" },
+  { q: "高压电缆（10kV / 35kV）也回收吗？", a: "回收。YJV22、YJLV22 等 10kV/35kV 交联聚乙烯高压电缆是我们的主要回收品类之一。由于截面大、铜含量高，回收单价相对较好，工程剩余、改造拆除的新旧高压电缆都可处理。" },
+  { q: "工厂整体拆除，除了电缆变压器还能处理什么？", a: "整厂拆除业务中，我们可一并处理配电柜/开关柜、母线槽、电机、水泵、控制柜、UPS 等电气设备，以及部分金属结构件。可打包评估报价，一站式完成场地腾退。" },
+  { q: "如何防止被低价收购？", a: "建议：1) 同时咨询 2–3 家回收方对比报价；2) 要求对方说明计价公式（铜/铝价 × 系数）；3) 过磅时到场监督；4) 查看对方是否具备再生资源经营资质。我们报价公式完全透明，欢迎对比。" },
+];
+
+/* 信任数据带 */
+const trustStats = [
+  { val: "10", unit: "年+", label: "行业经验" },
+  { val: "500", unit: "+", label: "服务企业" },
+  { val: "3000", unit: "吨+", label: "累计回收" },
+  { val: "24", unit: "h",  label: "最快响应" },
+];
+
+/* 价格参考指南（SEO 长尾内容） */
+const priceGuide = [
+  {
+    cat: "废旧电缆",
+    items: [
+      { name: "铜芯电力电缆 YJV", spec: "3×95+1×50 及以上", note: "按净铜重量 × 当日长江铜价 × 回收系数" },
+      { name: "铝芯电力电缆 YJLV", spec: "3×120+1×70 及以上", note: "按净铝重量 × 当日铝价 × 回收系数" },
+      { name: "高压交联电缆",   spec: "10kV / 35kV YJV22", note: "按截面与铜含量单独估价，价格较好" },
+      { name: "控制电缆 KVV",    spec: "多芯控制线", note: "回收按铜芯折算，外护套重量剔除" },
+    ],
+  },
+  {
+    cat: "二手变压器",
+    items: [
+      { name: "油浸式变压器 S11/S13", spec: "315–2500kVA", note: "按品牌、铭牌、年限与外观综合评估" },
+      { name: "干式变压器 SCB10/SCB13", spec: "400–2000kVA", note: "绕组完整、铭牌清晰者估价更高" },
+      { name: "箱式变电站",   spec: "户外整套", note: "可连箱体整体回收或拆分评估" },
+      { name: "开关柜/配电柜", spec: "GGD / GCK / KYN28 / MNS", note: "按柜体数量、铜排、断路器配置估价" },
+    ],
+  },
+];
+
+/* 企业资质与保障 */
+const credentials = [
+  { title: "营业执照",       desc: "合法工商注册主体，可对公结算" },
+  { title: "再生资源经营备案", desc: "资质齐全，规范处置，合规票据" },
+  { title: "道路运输许可",   desc: "自有车辆，大宗设备安全转运" },
+  { title: "场地与过磅设备", desc: "固定堆场 + 地磅，全程可视化" },
+];
+
+/* 客户评价 */
+const testimonials = [
+  { name: "王总", role: "苏州某机械制造厂 · 设备部", text: "整厂搬迁时找了三家对比，新兴电力的报价最透明，当天称重当天结算，合作很顺。" },
+  { name: "陈经理", role: "上海某物业管理公司", text: "小区变压器更换剩下一批旧设备，他们一个工作日就上门评估，回收单据齐全可以做账。" },
+  { name: "李总", role: "无锡某电气工程承包商", text: "经常有工地剩余电缆，每次发照片微信就能初步估价，长期合作省心。" },
 ];
 
 /* ── 组件 ─────────────────────────────────────────── */
@@ -125,7 +190,7 @@ function FAQItem({ q, a }) {
 /* ── 主页面 ───────────────────────────────────────── */
 export default function App() {
   return (
-    <div className="min-h-screen scroll-smooth bg-zinc-950 text-white selection:bg-amber-300 selection:text-zinc-950">
+    <div className="min-h-screen scroll-smooth bg-zinc-950 pb-20 text-white selection:bg-amber-300 selection:text-zinc-950 lg:pb-0">
 
       {/* ── 导航 ── */}
       <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-zinc-950/70 backdrop-blur-2xl">
@@ -135,7 +200,7 @@ export default function App() {
             <div className="mt-0.5 text-[10px] tracking-wide text-zinc-500">长三角及安徽 · 废旧电缆与变压器专业团队</div>
           </div>
           <nav className="hidden items-center gap-7 text-xs font-medium tracking-wider text-zinc-400 lg:flex" aria-label="主导航">
-            {[["业务","#services"],["优势","#advantages"],["区域","#regions"],["案例","#cases"],["现场","#gallery"],["FAQ","#faq"],["联系","#contact"]].map(([label, href]) => (
+            {[["业务","#services"],["报价","#price"],["案例","#cases"],["现场","#gallery"],["评价","#testimonials"],["资质","#credentials"],["FAQ","#faq"],["联系","#contact"]].map(([label, href]) => (
               <a key={href} href={href} className="transition hover:text-zinc-100">{label}</a>
             ))}
           </nav>
@@ -146,7 +211,7 @@ export default function App() {
         {/* 移动端 tab */}
         <div className="border-t border-white/[0.06] px-4 py-2.5 lg:hidden">
           <div className="flex gap-2 overflow-x-auto [scrollbar-width:none]">
-            {[["业务","#services"],["优势","#advantages"],["区域","#regions"],["案例","#cases"],["现场","#gallery"],["FAQ","#faq"],["联系","#contact"]].map(([label, href]) => (
+            {[["业务","#services"],["报价","#price"],["案例","#cases"],["现场","#gallery"],["评价","#testimonials"],["资质","#credentials"],["FAQ","#faq"],["联系","#contact"]].map(([label, href]) => (
               <a key={href} href={href} className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-zinc-300">{label}</a>
             ))}
           </div>
@@ -187,15 +252,25 @@ export default function App() {
                 新兴电力设备专注长三角及安徽地区废旧电缆高价回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">上门评估 · 当日响应 · 现场结算</strong>。
               </p>
 
+              {/* 信任小徽章 */}
+              <div className="mt-6 flex flex-wrap gap-2 text-[11px] text-zinc-400">
+                {["✓ 免费上门评估","✓ 当日响应","✓ 现场结算","✓ 正规单据"].map(x => (
+                  <span key={x} className="rounded-full border border-white/10 bg-white/5 px-3 py-1">{x}</span>
+                ))}
+              </div>
+
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={PHONE_TEL} className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-400/25 transition hover:-translate-y-0.5 hover:shadow-amber-400/40">
+                <a href={PHONE_TEL} className="group inline-flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-400/25 transition hover:-translate-y-0.5 hover:shadow-amber-400/40">
                   <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
                     <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 16.352V17.5a1.5 1.5 0 0 1-1.5 1.5H15c-8.284 0-15-6.716-15-15V3.5Z" clipRule="evenodd"/>
                   </svg>
-                  立即电话咨询
+                  立即免费报价 · {PHONE}
+                  <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5 transition group-hover:translate-x-0.5">
+                    <path fillRule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clipRule="evenodd"/>
+                  </svg>
                 </a>
-                <a href="#contact" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-300 transition hover:bg-white/10 hover:text-white">
-                  查看联系方式
+                <a href="#price" className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-sm font-semibold text-zinc-300 transition hover:bg-white/10 hover:text-white">
+                  查看价格指南
                 </a>
               </div>
 
@@ -223,9 +298,9 @@ export default function App() {
               <div className="absolute -inset-4 rounded-[3rem] bg-amber-400/5 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10">
                 <img
-                  src="/image/新兴电力回收-电缆盘回收现场.png"
-                  alt="专业废旧电缆与二手变压器回收——电缆盘回收堆场现场"
-                  width="900" height="600"
+                  src="/image/新兴电力回收-铜芯电缆盘矩阵.png"
+                  alt="长三角及安徽专业废旧电缆回收——铜芯电缆盘规模化堆场"
+                  width="1600" height="1000"
                   loading="eager"
                   fetchpriority="high"
                   className="h-64 w-full object-cover sm:h-80 lg:h-[460px]"
@@ -249,6 +324,23 @@ export default function App() {
                 <div className="text-xs font-black tracking-wider text-zinc-950">当日响应</div>
                 <div className="text-[9px] font-bold tracking-wider text-zinc-950/70">上门评估</div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── 信任数据带 ── */}
+        <section aria-label="服务数据" className="border-y border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="grid grid-cols-2 divide-x divide-white/[0.06] md:grid-cols-4">
+              {trustStats.map((s) => (
+                <div key={s.label} className="flex flex-col items-center justify-center gap-1 py-7 text-center">
+                  <div className="flex items-baseline gap-0.5">
+                    <span className="text-3xl font-black tracking-tight text-white sm:text-4xl">{s.val}</span>
+                    <span className="text-sm font-bold text-amber-400">{s.unit}</span>
+                  </div>
+                  <div className="text-[11px] tracking-widest text-zinc-500">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -290,6 +382,54 @@ export default function App() {
           </div>
         </section>
 
+        {/* ── 价格指南（SEO长尾） ── */}
+        <section id="price" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
+          <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+            <div className="mb-12 grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Price Guide</p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">回收价格参考指南</h2>
+              </div>
+              <p className="text-sm leading-7 text-zinc-400">
+                下表为废旧电缆与二手变压器的常见计价方式参考，实际价格以当日铜/铝现货行情、设备状态、数量与物流条件综合评估为准。
+                <br className="hidden md:block"/>
+                <strong className="text-zinc-200">建议：</strong>拍照发微信 <span className="text-amber-300">{WECHAT}</span>，10 分钟内即可给出初步价格区间。
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {priceGuide.map((g) => (
+                <div key={g.cat} className="rounded-[1.75rem] border border-white/8 bg-zinc-950/60 p-7">
+                  <div className="mb-5 flex items-center gap-3">
+                    <span className="h-2 w-2 rounded-full bg-amber-400" />
+                    <h3 className="text-lg font-bold text-white">{g.cat}</h3>
+                  </div>
+                  <div className="space-y-3">
+                    {g.items.map((it) => (
+                      <div key={it.name} className="rounded-xl border border-white/5 bg-white/[0.02] p-4">
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="text-sm font-semibold text-zinc-100">{it.name}</div>
+                          <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] text-zinc-400">{it.spec}</span>
+                        </div>
+                        <div className="mt-2 text-xs leading-6 text-zinc-500">{it.note}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col items-start gap-3 rounded-2xl border border-amber-400/15 bg-amber-400/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="text-sm leading-6 text-zinc-300">
+                <strong className="text-amber-300">免费获取精准报价：</strong>发送铭牌照片与数量，专人 10 分钟内回复。
+              </div>
+              <a href={PHONE_TEL} className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-bold text-zinc-950 transition hover:-translate-y-0.5">
+                立即获取报价 →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* ── 服务优势 ── */}
         <section id="advantages" className="scroll-mt-28 border-y border-white/[0.06]">
           <div className="relative overflow-hidden">
@@ -327,16 +467,24 @@ export default function App() {
                 来电确认服务城市
               </a>
             </div>
-            <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5">
-              {regions.map((region) => (
-                <div key={region}
-                  className="group relative rounded-xl border border-white/8 bg-white/[0.02] py-3 text-center text-xs font-medium text-zinc-400 transition hover:border-amber-400/30 hover:text-amber-300">
-                  {region}
-                </div>
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5">
+              {regions.map((r) => (
+                <a
+                  key={r.slug}
+                  href={`/${r.slug}/`}
+                  aria-label={`${r.name}废旧电缆与二手变压器回收`}
+                  className="group relative flex items-center justify-center gap-1.5 rounded-xl border border-white/8 bg-white/[0.02] py-3 text-center text-xs font-semibold text-zinc-300 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-amber-400/[0.06] hover:text-amber-300">
+                  {r.name}
+                  <svg viewBox="0 0 16 16" fill="currentColor" className="h-3 w-3 opacity-0 transition group-hover:opacity-100">
+                    <path fillRule="evenodd" d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z" clipRule="evenodd"/>
+                  </svg>
+                </a>
               ))}
-              <div className="rounded-xl border border-dashed border-white/10 py-3 text-center text-xs text-zinc-600">
-                更多…
-              </div>
+              <a
+                href="#contact"
+                className="flex items-center justify-center gap-1.5 rounded-xl border border-dashed border-amber-400/30 bg-amber-400/[0.04] py-3 text-center text-xs font-semibold text-amber-300 transition hover:bg-amber-400/10">
+                其他城市 →
+              </a>
             </div>
           </div>
         </section>
@@ -427,6 +575,73 @@ export default function App() {
           </div>
         </section>
 
+        {/* ── 客户评价 ── */}
+        <section id="testimonials" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
+          <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+            <div className="mb-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Clients Say</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">合作企业真实反馈</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400">来自长三角机械制造、物业管理、电气工程等不同行业客户的真实评价。</p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {testimonials.map((t) => (
+                <figure key={t.name} className="group relative flex h-full flex-col rounded-[1.5rem] border border-white/8 bg-zinc-950/60 p-7 transition hover:border-amber-400/20">
+                  <svg viewBox="0 0 32 24" fill="currentColor" className="h-7 w-7 text-amber-400/40">
+                    <path d="M0 24V12C0 5.373 5.373 0 12 0v4c-4.418 0-8 3.582-8 8h8v12H0Zm20 0V12c0-6.627 5.373-12 12-12v4c-4.418 0-8 3.582-8 8h8v12H20Z"/>
+                  </svg>
+                  <blockquote className="mt-4 flex-1 text-sm leading-7 text-zinc-300">{t.text}</blockquote>
+                  <figcaption className="mt-6 border-t border-white/8 pt-4">
+                    <div className="text-sm font-semibold text-white">{t.name}</div>
+                    <div className="mt-0.5 text-xs text-zinc-500">{t.role}</div>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 资质与保障 ── */}
+        <section id="credentials" className="scroll-mt-28 mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+          {/* 全幅变电站图带 */}
+          <div className="relative mb-14 overflow-hidden rounded-[2rem] border border-white/10">
+            <img
+              src="/image/新兴电力回收-变电站夜景.png"
+              alt="新兴电力设备 · 合规再生资源回收企业 · 变电站夜景"
+              loading="lazy"
+              className="h-72 w-full object-cover sm:h-96"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/60 to-transparent" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="max-w-xl px-8 sm:px-14">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Credentials</p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-5xl">资质齐全<br/>合规回收</h2>
+                <p className="mt-5 max-w-md text-sm leading-7 text-zinc-300">
+                  合法注册的再生资源回收企业，具备整厂设备处置所需完整资质，可对公结算、开具正规票据，合作流程清晰可追溯。
+                </p>
+                <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-bold text-zinc-950 transition hover:-translate-y-0.5">
+                  索取资质复印件 →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* 资质卡 */}
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {credentials.map((c, i) => (
+              <div key={c.title} className="group relative overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-6 transition hover:border-amber-400/25">
+                <div className="absolute right-4 top-4 text-5xl font-black text-white/[0.04] select-none">{String(i + 1).padStart(2, "0")}</div>
+                <div className="relative">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 text-amber-300">
+                    <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4"><path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd"/></svg>
+                  </div>
+                  <div className="text-base font-bold text-white">{c.title}</div>
+                  <p className="mt-2 text-xs leading-6 text-zinc-400">{c.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── 咨询流程 ── */}
         <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
@@ -456,8 +671,19 @@ export default function App() {
         </section>
 
         {/* ── FAQ ── */}
-        <section id="faq" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
-          <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+        <section id="faq" className="relative scroll-mt-28 overflow-hidden border-y border-white/[0.06]">
+          {/* 晨雾铁塔背景 */}
+          <div className="pointer-events-none absolute inset-0">
+            <img
+              src="/image/新兴电力回收-晨雾铁塔.png"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="h-full w-full object-cover opacity-[0.12]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/90 via-zinc-950/80 to-zinc-950/95" />
+          </div>
+          <div className="relative mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
             <div className="grid gap-14 lg:grid-cols-[1fr_1.5fr] lg:items-start">
               <div className="lg:sticky lg:top-32">
                 <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">FAQ</p>
@@ -541,14 +767,32 @@ export default function App() {
         </section>
       </main>
 
-      {/* 悬浮拨打 */}
+      {/* 桌面端：悬浮拨打 */}
       <a href={PHONE_TEL} aria-label="一键电话咨询"
-        className="fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full bg-amber-400 px-5 py-3 text-sm font-bold text-zinc-950 shadow-2xl shadow-amber-400/30 transition hover:-translate-y-0.5 sm:bottom-7 sm:right-7">
+        className="fixed bottom-7 right-7 z-50 hidden items-center gap-2 rounded-full bg-amber-400 px-5 py-3 text-sm font-bold text-zinc-950 shadow-2xl shadow-amber-400/30 transition hover:-translate-y-0.5 lg:flex">
         <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
           <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 16.352V17.5a1.5 1.5 0 0 1-1.5 1.5H15c-8.284 0-15-6.716-15-15V3.5Z" clipRule="evenodd"/>
         </svg>
         一键电话咨询
       </a>
+
+      {/* 移动端：底部双 CTA 栏 */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-zinc-950/90 backdrop-blur-xl lg:hidden">
+        <div className="grid grid-cols-2 gap-2 p-3" style={{paddingBottom:"max(12px,env(safe-area-inset-bottom))"}}>
+          <a href={PHONE_TEL} className="flex items-center justify-center gap-2 rounded-xl bg-amber-400 py-3 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-400/25">
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 16.352V17.5a1.5 1.5 0 0 1-1.5 1.5H15c-8.284 0-15-6.716-15-15V3.5Z" clipRule="evenodd"/>
+            </svg>
+            立即电话
+          </a>
+          <a href="#contact" className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-3 text-sm font-semibold text-zinc-200">
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-green-400">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/>
+            </svg>
+            微信咨询
+          </a>
+        </div>
+      </div>
 
       {/* ── 页脚 ── */}
       <footer className="border-t border-white/[0.06] bg-zinc-950">
@@ -568,7 +812,7 @@ export default function App() {
             </div>
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">服务城市</div>
-              <p className="text-xs leading-6 text-zinc-500">{regions.join(" · ")}</p>
+              <p className="text-xs leading-6 text-zinc-500">{regions.map(r => r.name).join(" · ")}</p>
             </div>
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">联系我们</div>
