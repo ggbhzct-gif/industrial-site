@@ -5,3 +5,6 @@ dist-ssr
 *.local
 .DS_Store
 .claude
+
+# 真实站点配置（含电话、备案号、统计 ID），不进公开仓库
+site.config.json
