@@ -203,8 +203,17 @@ export default function App() {
             <div className="text-sm font-semibold tracking-widest text-zinc-100 sm:text-base">新兴电力设备</div>
             <div className="mt-0.5 text-[10px] tracking-wide text-zinc-500">长三角及安徽 · 废旧电缆与变压器专业团队</div>
           </div>
-          <nav className="hidden items-center gap-7 text-xs font-medium tracking-wider text-zinc-400 lg:flex" aria-label="主导航">
-            {[["业务","#services"],["报价","#price"],["案例","#cases"],["现场","#gallery"],["评价","#testimonials"],["资质","#credentials"],["FAQ","#faq"],["联系","#contact"]].map(([label, href]) => (
+          <nav className="hidden items-center gap-6 text-xs font-medium tracking-wider text-zinc-400 lg:flex" aria-label="主导航">
+            {[
+              ["电缆回收","/cable-recycling/"],
+              ["变压器","/transformer-recycling/"],
+              ["工厂拆除","/factory-demolition/"],
+              ["报价","#price"],
+              ["案例","#cases"],
+              ["资质","#credentials"],
+              ["FAQ","#faq"],
+              ["联系","#contact"],
+            ].map(([label, href]) => (
               <a key={href} href={href} className="transition hover:text-zinc-100">{label}</a>
             ))}
           </nav>
@@ -215,7 +224,16 @@ export default function App() {
         {/* 移动端 tab */}
         <div className="border-t border-white/[0.06] px-4 py-2.5 lg:hidden">
           <div className="flex gap-2 overflow-x-auto [scrollbar-width:none]">
-            {[["业务","#services"],["报价","#price"],["案例","#cases"],["现场","#gallery"],["评价","#testimonials"],["资质","#credentials"],["FAQ","#faq"],["联系","#contact"]].map(([label, href]) => (
+            {[
+              ["电缆回收","/cable-recycling/"],
+              ["变压器","/transformer-recycling/"],
+              ["工厂拆除","/factory-demolition/"],
+              ["报价","#price"],
+              ["案例","#cases"],
+              ["资质","#credentials"],
+              ["FAQ","#faq"],
+              ["联系","#contact"],
+            ].map(([label, href]) => (
               <a key={href} href={href} className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-zinc-300">{label}</a>
             ))}
           </div>
@@ -772,13 +790,23 @@ export default function App() {
       </main>
 
       {/* 桌面端：悬浮拨打 */}
-      <a href={PHONE_TEL} aria-label="一键电话咨询"
-        className="fixed bottom-7 right-7 z-50 hidden items-center gap-2 rounded-full bg-amber-400 px-5 py-3 text-sm font-bold text-zinc-950 shadow-2xl shadow-amber-400/30 transition hover:-translate-y-0.5 lg:flex">
-        <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
-          <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 16.352V17.5a1.5 1.5 0 0 1-1.5 1.5H15c-8.284 0-15-6.716-15-15V3.5Z" clipRule="evenodd"/>
-        </svg>
-        一键电话咨询
-      </a>
+      {/* 桌面端：右下悬浮双 CTA */}
+      <div className="fixed bottom-7 right-7 z-50 hidden flex-col gap-3 lg:flex">
+        <a href="#contact" aria-label="微信咨询"
+          className="group flex items-center gap-2 rounded-full border border-green-500/40 bg-green-500/15 px-5 py-3 text-sm font-bold text-green-300 backdrop-blur transition hover:-translate-y-0.5 hover:bg-green-500/25">
+          <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/>
+          </svg>
+          微信咨询
+        </a>
+        <a href={PHONE_TEL} aria-label="一键电话咨询"
+          className="flex items-center gap-2 rounded-full bg-amber-400 px-5 py-3 text-sm font-bold text-zinc-950 shadow-2xl shadow-amber-400/30 transition hover:-translate-y-0.5">
+          <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+            <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 16.352V17.5a1.5 1.5 0 0 1-1.5 1.5H15c-8.284 0-15-6.716-15-15V3.5Z" clipRule="evenodd"/>
+          </svg>
+          一键电话咨询
+        </a>
+      </div>
 
       {/* 移动端：底部双 CTA 栏 */}
       <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-zinc-950/90 backdrop-blur-xl lg:hidden">
@@ -809,14 +837,26 @@ export default function App() {
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">主营业务</div>
               <ul className="space-y-2 text-xs leading-6 text-zinc-500">
-                {["废旧电缆回收","二手变压器回收","二手变压器出售","工厂拆除设备处理"].map(b => (
-                  <li key={b}>{b}</li>
+                {[
+                  ["废旧电缆回收","/cable-recycling/"],
+                  ["二手变压器回收","/transformer-recycling/"],
+                  ["二手变压器出售","/transformer-recycling/"],
+                  ["工厂拆除设备处理","/factory-demolition/"],
+                ].map(([t,h]) => (
+                  <li key={t}><a href={h} className="transition hover:text-amber-300">{t}</a></li>
                 ))}
               </ul>
             </div>
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">服务城市</div>
-              <p className="text-xs leading-6 text-zinc-500">{regions.map(r => r.name).join(" · ")}</p>
+              <p className="text-xs leading-6 text-zinc-500">
+                {regions.map((r, i) => (
+                  <span key={r.slug}>
+                    <a href={`/${r.slug}/`} className="transition hover:text-amber-300">{r.name}</a>
+                    {i < regions.length - 1 && <span className="text-zinc-700"> · </span>}
+                  </span>
+                ))}
+              </p>
             </div>
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">联系我们</div>
@@ -829,7 +869,10 @@ export default function App() {
           </div>
           <div className="mt-10 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
             <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器专业回收</div>
-            <div>皖ICP备XXXXXXXX号</div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
+              <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener" className="hover:text-zinc-500">皖ICP备XXXXXXXX号</a>
+              <a href="http://www.beian.gov.cn/" target="_blank" rel="nofollow noopener" className="hover:text-zinc-500">皖公网安备 XXXXXXXXXXXXX号</a>
+            </div>
           </div>
         </div>
       </footer>
