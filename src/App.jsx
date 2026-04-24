@@ -64,7 +64,7 @@ const regions = [
 
 const cases = [
   {
-    img: "/image/新兴电力回收-工厂电缆清运.png",
+    img: "/image/新兴电力回收-工厂电缆清运.webp",
     alt: "工厂配电房整体设备处理——工厂电缆清运现场",
     badge: "工厂搬迁",
     title: "工厂配电房整体设备处理",
@@ -72,7 +72,7 @@ const cases = [
     large: true,
   },
   {
-    img: "/image/新兴电力回收-电缆盘回收现场.png",
+    img: "/image/新兴电力回收-电缆盘回收现场.webp",
     alt: "废旧电缆高价回收——电缆盘回收现场称重结算",
     badge: "电缆回收",
     title: "废旧电缆高价回收对接",
@@ -80,7 +80,7 @@ const cases = [
     large: false,
   },
   {
-    img: "/image/新兴电力回收-废旧变压器回收.png",
+    img: "/image/新兴电力回收-废旧变压器回收.webp",
     alt: "二手变压器展示与流通——废旧变压器回收现场",
     badge: "变压器买卖",
     title: "二手变压器回收与流通",
@@ -91,12 +91,12 @@ const cases = [
 
 /* 作业现场图库 */
 const gallery = [
-  { src: "/image/新兴电力回收-大型电缆盘收购.png",    label: "大型电缆盘收购" },
-  { src: "/image/新兴电力回收-废旧电缆回收堆场.png",  label: "废旧电缆堆场" },
-  { src: "/image/新兴电力回收-配电柜回收现场.png",    label: "配电柜回收现场" },
-  { src: "/image/新兴电力回收-电缆整理打包.png",      label: "电缆整理打包" },
-  { src: "/image/新兴电力回收-散装电线回收.png",      label: "散装电线回收" },
-  { src: "/image/新兴电力回收-电机水泵回收.png",      label: "电机水泵回收" },
+  { src: "/image/新兴电力回收-大型电缆盘收购.webp",    label: "大型电缆盘收购" },
+  { src: "/image/新兴电力回收-废旧电缆回收堆场.webp",  label: "废旧电缆堆场" },
+  { src: "/image/新兴电力回收-配电柜回收现场.webp",    label: "配电柜回收现场" },
+  { src: "/image/新兴电力回收-电缆整理打包.webp",      label: "电缆整理打包" },
+  { src: "/image/新兴电力回收-散装电线回收.webp",      label: "散装电线回收" },
+  { src: "/image/新兴电力回收-电机水泵回收.webp",      label: "电机水泵回收" },
 ];
 
 const steps = [
@@ -320,7 +320,7 @@ export default function App() {
               <div className="absolute -inset-4 rounded-[3rem] bg-amber-400/5 blur-3xl" />
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10">
                 <img
-                  src="/image/新兴电力回收-铜芯电缆盘矩阵.png"
+                  src="/image/新兴电力回收-铜芯电缆盘矩阵.webp"
                   alt="长三角及安徽专业废旧电缆回收——铜芯电缆盘规模化堆场"
                   width="1600" height="1000"
                   loading="eager"
@@ -627,7 +627,7 @@ export default function App() {
           {/* 全幅变电站图带 */}
           <div className="relative mb-14 overflow-hidden rounded-[2rem] border border-white/10">
             <img
-              src="/image/新兴电力回收-变电站夜景.png"
+              src="/image/新兴电力回收-变电站夜景.webp"
               alt="新兴电力设备 · 合规再生资源回收企业 · 变电站夜景"
               loading="lazy"
               className="h-72 w-full object-cover sm:h-96"
@@ -697,7 +697,7 @@ export default function App() {
           {/* 晨雾铁塔背景 */}
           <div className="pointer-events-none absolute inset-0">
             <img
-              src="/image/新兴电力回收-晨雾铁塔.png"
+              src="/image/新兴电力回收-晨雾铁塔.webp"
               alt=""
               aria-hidden="true"
               loading="lazy"
@@ -869,9 +869,8 @@ export default function App() {
           </div>
           <div className="mt-10 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
             <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器专业回收</div>
-            <div className="flex flex-wrap gap-x-4 gap-y-1">
+            <div>
               <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener" className="hover:text-zinc-500">皖ICP备XXXXXXXX号</a>
-              <a href="http://www.beian.gov.cn/" target="_blank" rel="nofollow noopener" className="hover:text-zinc-500">皖公网安备 XXXXXXXXXXXXX号</a>
             </div>
           </div>
         </div>

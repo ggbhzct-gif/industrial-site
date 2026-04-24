@@ -32,7 +32,7 @@ if (!existsSync(CONFIG_PATH)) {
 }
 
 const cfg = JSON.parse(readFileSync(CONFIG_PATH, "utf8"));
-const required = ["phone", "wechat", "icpBeian", "gonganBeian", "baiduTongjiId", "ga4Id"];
+const required = ["phone", "wechat", "icpBeian", "baiduTongjiId", "ga4Id"];
 const missing = required.filter(k => !cfg[k] || String(cfg[k]).includes("XXXX") || String(cfg[k]).includes("填"));
 if (missing.length) {
   console.error("\n❌ 以下字段未填或仍是占位符：", missing.join(", "));
@@ -67,9 +67,6 @@ const RULES = [
   // ICP 备案
   { files: ["src/App.jsx","scripts/gen-city-pages.mjs"],
     find: /皖ICP备XXXXXXXX号/g, replace: cfg.icpBeian, label: "ICP 备案号" },
-  // 公安网备案
-  { files: ["src/App.jsx","scripts/gen-city-pages.mjs"],
-    find: /皖公网安备 XXXXXXXXXXXXX号/g, replace: cfg.gonganBeian, label: "公安网备案号" },
   // 百度统计 ID
   { files: ["index.html"],
     find: /BAIDU_HM_ID/g, replace: cfg.baiduTongjiId, label: "百度统计 hm.js ID" },

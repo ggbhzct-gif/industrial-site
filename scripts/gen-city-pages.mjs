@@ -381,7 +381,6 @@ const footerHtml = () => `
   <div>电话：${PHONE} · 微信：${WECHAT}</div>
   <div style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:16px;margin-top:8px;color:#3f3f46;font-size:11px">
     <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">皖ICP备XXXXXXXX号</a>
-    <a href="http://www.beian.gov.cn/" target="_blank" rel="nofollow noopener">皖公网安备 XXXXXXXXXXXXX号</a>
   </div>
 </div></footer>`;
 
@@ -402,7 +401,7 @@ function renderCity(c) {
     "@context":"https://schema.org","@type":"LocalBusiness",
     name:"新兴电力设备",url:canonical,telephone:PHONE,
     description:desc,
-    image:`${SITE}/image/新兴电力回收-废旧电缆回收堆场.png`,
+    image:`${SITE}/image/新兴电力回收-废旧电缆回收堆场.webp`,
     areaServed:{ "@type":"City", name:c.name, containedInPlace:{ "@type":"AdministrativeArea", name:c.prov } },
     address:{ "@type":"PostalAddress", addressCountry:"CN", addressRegion:c.prov, addressLocality:c.name },
     openingHours:"Mo-Su 08:00-20:00", priceRange:"$$",
@@ -435,7 +434,7 @@ function renderCity(c) {
 <meta property="og:url" content="${canonical}"/>
 <meta property="og:title" content="${title}"/>
 <meta property="og:description" content="${desc}"/>
-<meta property="og:image" content="${SITE}/image/新兴电力回收-废旧电缆回收堆场.png"/>
+<meta property="og:image" content="${SITE}/image/新兴电力回收-废旧电缆回收堆场.webp"/>
 <meta property="og:locale" content="zh_CN"/>
 <meta property="og:site_name" content="新兴电力设备"/>
 <link rel="alternate" href="${SITE}/" hreflang="zh-CN"/>
@@ -568,7 +567,7 @@ function renderService(s) {
 <meta property="og:url" content="${canonical}"/>
 <meta property="og:title" content="${s.title}"/>
 <meta property="og:description" content="${s.desc}"/>
-<meta property="og:image" content="${SITE}/image/新兴电力回收-废旧电缆回收堆场.png"/>
+<meta property="og:image" content="${SITE}/image/新兴电力回收-废旧电缆回收堆场.webp"/>
 <meta property="og:locale" content="zh_CN"/>
 <meta property="og:site_name" content="新兴电力设备"/>
 <script type="application/ld+json">${JSON.stringify(ldService)}</script>

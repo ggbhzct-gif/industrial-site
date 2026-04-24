@@ -44,6 +44,9 @@
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
+    <!-- ===== 预加载首屏 Hero 图（优化 LCP） ===== -->
+    <link rel="preload" as="image" href="/image/新兴电力回收-铜芯电缆盘矩阵.webp" fetchpriority="high" />
+
     <!-- ===== JSON-LD：LocalBusiness ===== -->
     <script type="application/ld+json">
     {
@@ -191,6 +194,7 @@
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
+        hm.async = true; // 非阻塞加载，避免影响首屏 LCP
         hm.src = "https://hm.baidu.com/hm.js?BAIDU_HM_ID";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
@@ -215,7 +219,42 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- ===== 爬虫 / 无 JS 回退内容（React 挂载后会被替换） ===== -->
+      <noscript><style>.ssr-fallback{display:block !important}</style></noscript>
+      <div class="ssr-fallback" style="max-width:1100px;margin:0 auto;padding:32px 20px;font-family:PingFang SC,Microsoft YaHei,sans-serif;color:#18181b;line-height:1.7">
+        <h1 style="font-size:30px;margin:0 0 12px;font-weight:800">废旧电缆回收·二手变压器回收出售·长三角及安徽上门服务</h1>
+        <p style="font-size:16px;color:#3f3f46;margin:0 0 20px">
+          新兴电力设备，专业从事<strong>废旧电缆回收</strong>、<strong>二手变压器回收出售</strong>、<strong>工厂拆除设备处理</strong>。
+          覆盖上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州、合肥、芜湖、马鞍山、滁州等长三角及安徽主要城市，
+          现场评估、当日响应、高价回收，支持正规过磅单与发票。
+        </p>
+
+        <h2 style="font-size:20px;margin:24px 0 8px;font-weight:700">核心业务</h2>
+        <ul style="padding-left:20px;margin:0 0 20px">
+          <li><a href="/fei-jiu-dian-lan-hui-shou/">废旧电缆回收</a>：铜芯/铝芯电缆、高压 10kV/35kV YJV22、低压 YJV、控制电缆、矿物电缆等。</li>
+          <li><a href="/er-shou-bian-ya-qi-hui-shou/">二手变压器回收</a>：S9/S11/S13 油浸式，SCB10/SCB13 干式，配套开关柜、配电柜。</li>
+          <li><a href="/gong-chang-she-bei-chu-li/">工厂整厂拆除设备处理</a>：配电房拆改、电机水泵、母线槽、整厂资产处置。</li>
+        </ul>
+
+        <h2 style="font-size:20px;margin:24px 0 8px;font-weight:700">服务城市</h2>
+        <p style="margin:0 0 20px;font-size:15px">
+          <a href="/shanghai/">上海</a> · <a href="/suzhou/">苏州</a> · <a href="/kunshan/">昆山</a> ·
+          <a href="/wuxi/">无锡</a> · <a href="/changzhou/">常州</a> · <a href="/nanjing/">南京</a> ·
+          <a href="/hangzhou/">杭州</a> · <a href="/ningbo/">宁波</a> · <a href="/jiaxing/">嘉兴</a> ·
+          <a href="/huzhou/">湖州</a> · <a href="/hefei/">合肥</a> · <a href="/wuhu/">芜湖</a> ·
+          <a href="/maanshan/">马鞍山</a> · <a href="/chuzhou/">滁州</a>
+        </p>
+
+        <h2 style="font-size:20px;margin:24px 0 8px;font-weight:700">联系方式</h2>
+        <p style="margin:0 0 8px;font-size:16px">
+          电话：<a href="tel:+8613800000000"><strong>138-0000-0000</strong></a>（8:00–20:00 全天响应）
+        </p>
+        <p style="margin:0 0 8px;font-size:16px">微信：<strong>xinxingdianli</strong>（发铭牌/现场图秒级估价）</p>
+        <p style="margin:0;font-size:14px;color:#52525b">长三角及安徽全境上门看货，一次签约，全程负责清运与资产处置。</p>
+      </div>
+      <style>.ssr-fallback{display:block}</style>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
