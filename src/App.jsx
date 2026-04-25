@@ -705,16 +705,16 @@ export default function App() {
                     src={c.img}
                     alt={`新兴电力设备 · ${c.title}`}
                     loading="lazy"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    onError={(e) => { e.currentTarget.style.opacity = "0"; }}
+                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-[10px] tracking-widest text-zinc-600 [.group:has(img[style*='display:none'])_&]:flex">
-                    {/* fallback 提示 */}
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-center text-[10px] tracking-widest text-zinc-600">
+                    证照待上传
                   </div>
-                  <div className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-amber-400/90 text-zinc-950">
+                  <div className="absolute right-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-amber-400/90 text-zinc-950">
                     <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5"><path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd"/></svg>
                   </div>
-                  <span className="absolute left-3 top-3 rounded-md bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-wider text-white backdrop-blur">{String(i + 1).padStart(2, "0")} / 04</span>
+                  <span className="absolute left-3 top-3 z-10 rounded-md bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-wider text-white backdrop-blur">{String(i + 1).padStart(2, "0")} / 04</span>
                 </div>
                 <div className="p-5">
                   <div className="text-sm font-bold text-white">{c.title}</div>
@@ -863,15 +863,18 @@ export default function App() {
               <div className="border-t border-white/8 p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-14">
                 {/* 微信二维码 */}
                 <div className="mb-6 flex items-center gap-5 rounded-2xl border border-white/8 bg-white/[0.03] p-5">
-                  <div className="flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white">
+                  <div className="relative flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white">
                     <img
                       src="/image/wechat-qr.png"
                       alt="新兴电力设备 微信二维码"
                       width="112" height="112"
                       loading="lazy"
-                      onError={(e) => { e.currentTarget.outerHTML = '<div style="font-size:10px;color:#a1a1aa;text-align:center;padding:8px;line-height:1.4">二维码<br/>待上传<br/>(public/image/<br/>wechat-qr.png)</div>'; }}
+                      onError={(e) => { e.currentTarget.style.display = "none"; e.currentTarget.nextElementSibling.style.display = "flex"; }}
                       className="h-full w-full object-contain"
                     />
+                    <div style={{display:"none"}} className="absolute inset-0 flex-col items-center justify-center bg-zinc-100 p-2 text-center text-[10px] leading-4 text-zinc-500">
+                      二维码待上传<br/>public/image/<br/>wechat-qr.png
+                    </div>
                   </div>
                   <div>
                     <div className="text-xs text-zinc-500">扫码加微信</div>
