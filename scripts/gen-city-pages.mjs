@@ -285,10 +285,11 @@ function cityLocalFaqs(c) {
   return [
     { q:`在${c.name}多久能安排上门？`,
       a:`${c.name}核心区（${c.areas.slice(0,3).join("、")}等）一般 24 小时内到场；${c.prov}周边县市 1–3 个工作日内到场。急单可电话沟通插单。` },
-    { q:`${c.name}${c.landmark||c.name}等区域都接单吗？`,
-      a:`接。${c.name}${c.areas.join("、")}均在日常服务范围内。${c.landmark?c.landmark+"等重点园区设有专项响应机制，":""}大项目可驻场对接。` },
+    // 修：避免 "苏州苏州工业园区" 这种 city × landmark 双重前缀（堆砌触发）
+    { q:`${c.landmark||c.areas.slice(0,3).join("、")} 等区域都接单吗？`,
+      a:`接。${c.areas.join("、")}均在日常服务范围内。${c.landmark?c.landmark+"等重点园区设有专项响应机制，":""}大项目可驻场对接。` },
     { q:`${c.name}本地有类似案例吗？`,
-      a:`${c.caseNote}累计在${c.name}完成工厂搬迁、配电房拆改、电缆/变压器回收等项目数十起，有合同与档案可供查阅。` },
+      a:`${c.caseNote}案例已脱敏，授权后可出示完整档案。` },
   ];
 }
 
@@ -395,13 +396,14 @@ function renderCity(c) {
   ].join(",");
   const canonical = `${SITE}/${c.slug}/`;
   const otherCities = CITIES.filter(x => x.slug !== c.slug);
-  const faqs = [...commonFaqs.map(f=>({ q:f.q.replace("？",`（${c.name}）？`), a:f.a })), ...cityLocalFaqs(c)];
+  // 去掉每条 FAQ 标题尾巴的 "（城市）" 后缀 —— 14 城重复同一标题反而被搜索引擎判堆砌；FAQ JSON-LD 内的城市信号靠 areaServed 即可
+  const faqs = [...commonFaqs, ...cityLocalFaqs(c)];
 
   const ldLocalBusiness = {
     "@context":"https://schema.org","@type":"LocalBusiness",
     name:"新兴电力设备",url:canonical,telephone:PHONE,
     description:desc,
-    image:`${SITE}/image/新兴电力回收-废旧电缆回收堆场.webp`,
+    image:`${SITE}/og-cover.jpg`,
     areaServed:{ "@type":"City", name:c.name, containedInPlace:{ "@type":"AdministrativeArea", name:c.prov } },
     address:{ "@type":"PostalAddress", addressCountry:"CN", addressRegion:c.prov, addressLocality:c.name },
     openingHours:"Mo-Su 08:00-20:00", priceRange:"$$",
@@ -434,7 +436,7 @@ function renderCity(c) {
 <meta property="og:url" content="${canonical}"/>
 <meta property="og:title" content="${title}"/>
 <meta property="og:description" content="${desc}"/>
-<meta property="og:image" content="${SITE}/image/新兴电力回收-废旧电缆回收堆场.webp"/>
+<meta property="og:image" content="${SITE}/og-cover.jpg"/>
 <meta property="og:locale" content="zh_CN"/>
 <meta property="og:site_name" content="新兴电力设备"/>
 <link rel="alternate" href="${SITE}/" hreflang="zh-CN"/>
@@ -484,7 +486,8 @@ ${headerHtml(c.slug)}
   <section><div class="wrap">
     <div class="kicker">Local Case · ${c.name}</div>
     <h2>${c.name}本地案例参考</h2>
-    <p class="bigp">${c.caseNote}类似项目我们在${c.name}累计完成多起，均提供过磅单、照片档案与正规单据，便于企业资产处置合规留痕。</p>
+    <p class="bigp">${c.caseNote}</p>
+    <p style="color:#71717a;font-size:13px;margin-top:8px">说明：上述案例规格与时间已脱敏处理，正式合作前可经客户授权后出示完整档案。</p>
   </div></section>
 
   <section><div class="wrap">
@@ -567,7 +570,7 @@ function renderService(s) {
 <meta property="og:url" content="${canonical}"/>
 <meta property="og:title" content="${s.title}"/>
 <meta property="og:description" content="${s.desc}"/>
-<meta property="og:image" content="${SITE}/image/新兴电力回收-废旧电缆回收堆场.webp"/>
+<meta property="og:image" content="${SITE}/og-cover.jpg"/>
 <meta property="og:locale" content="zh_CN"/>
 <meta property="og:site_name" content="新兴电力设备"/>
 <script type="application/ld+json">${JSON.stringify(ldService)}</script>
@@ -592,8 +595,11 @@ ${headerHtml(s.slug)}
     </div>
   </div></section>
 
-  ${s.sections.map(sec => `
-  <section><div class="wrap">
+  ${s.sections.map(sec => {
+    // "出售" 段落带 id="sell" 锚点，首页服务卡 03 (/transformer-recycling/#sell) 才能精确跳转
+    const anchorId = sec.h2.startsWith("出售：") ? "sell" : "";
+    return `
+  <section${anchorId ? ` id="${anchorId}" style="scroll-margin-top:90px"` : ""}><div class="wrap">
     <div class="kicker">${s.kicker}</div>
     <h2>${sec.h2}</h2>
     ${sec.lead ? `<p class="lead">${sec.lead}</p>` : ""}
@@ -606,7 +612,8 @@ ${headerHtml(s.slug)}
         </article>`).join("")}
     </div>
   </div></section>
-  `).join("")}
+  `;
+  }).join("")}
 
   <section id="regions"><div class="wrap">
     <div class="kicker">Coverage</div>

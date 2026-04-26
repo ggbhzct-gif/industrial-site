@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const PHONE     = "138-0000-0000";
 const PHONE_TEL = "tel:13800000000";
@@ -158,28 +158,28 @@ const credentials = [
   { title: "场地与过磅设备",  desc: "固定堆场 + 地磅，全程可视化",         img: "/image/cert/过磅地磅.jpg" },
 ];
 
-/* 客户评价（带日期 + 规格 + 体量，便于客户判断是否同类项目） */
+/* 客户合作案例（涉及客户隐私，姓氏化名 + 模糊地点；语气保持中性，避免销售剧本感） */
 const testimonials = [
   {
-    name: "王经理",
-    role: "苏州工业园区 · 某机械制造厂 设备部",
-    project: "2025.09 整厂搬迁",
-    spec: "3 台 SCB10-1000kVA 干变 + 800m YJV22 10kV 高压电缆",
-    text: "找了三家对比，他们计价公式现场写在纸上，铜价系数全公开。48 小时内完成评估清运，过磅单当场签字，财务对账没卡壳。",
+    name: "W 先生",
+    role: "苏州工业园区 · 机械制造行业 设备主管",
+    project: "整厂搬迁",
+    spec: "干式变压器 + 高压电缆批量",
+    text: "对比了几家报价，他们现场把计价公式说清楚了，过磅当场出单，整个流程财务能直接做账。",
   },
   {
-    name: "陈主任",
-    role: "上海闵行 · 某住宅小区物业管理处",
-    project: "2025.08 配电改造",
-    spec: "2 台 S11-630kVA 油浸变压器 + GGD 低压配电柜 6 面",
-    text: "小区设备更新拆下来一批老变压器，发了铭牌照片当天就给了价。来车带过磅器现场称重，业委会监督全程，发票合规。",
+    name: "C 女士",
+    role: "上海 · 物业管理 配电改造项目",
+    project: "配电改造",
+    spec: "油浸变压器 + 低压配电柜",
+    text: "前期发铭牌照片就给了大致区间，到场实测后差异不大，正规发票当周开具。",
   },
   {
-    name: "李工",
-    role: "无锡新吴区 · 某电气工程承包商",
-    project: "2025.10 工地余料",
-    spec: "YJV 3×95+1×50 铜芯电缆约 2.3 吨 + 控制电缆若干",
-    text: "工地经常有边角料，微信发照片 10 分钟就有初步价。这次称重 2,310kg，按当日铜价系数算下来比上一家高了 4,200 块，长期合作。",
+    name: "L 工",
+    role: "无锡 · 电气工程承包商 现场负责人",
+    project: "工地余料",
+    spec: "铜芯电缆批次回收",
+    text: "工地零散电缆比较多，照片估价省去了来回跑。称重和铜价系数都透明，长期合作。",
   },
 ];
 
@@ -211,6 +211,16 @@ function FAQItem({ q, a }) {
 
 /* ── 主页面 ───────────────────────────────────────── */
 export default function App() {
+  // 滚到 footer 时隐藏右下/底部悬浮 CTA，避免遮挡公司地址、地图
+  const footerRef = useRef(null);
+  const [hideFloating, setHideFloating] = useState(false);
+  useEffect(() => {
+    if (!footerRef.current) return;
+    const obs = new IntersectionObserver(([entry]) => setHideFloating(entry.isIntersecting), { rootMargin: "0px 0px -40% 0px" });
+    obs.observe(footerRef.current);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen scroll-smooth bg-zinc-950 pb-20 text-white selection:bg-amber-300 selection:text-zinc-950 lg:pb-0">
 
@@ -223,16 +233,23 @@ export default function App() {
           </div>
           <nav className="hidden items-center gap-6 text-xs font-medium tracking-wider text-zinc-400 lg:flex" aria-label="主导航">
             {[
-              ["电缆回收","/cable-recycling/"],
-              ["变压器","/transformer-recycling/"],
-              ["工厂拆除","/factory-demolition/"],
-              ["报价","#price"],
-              ["案例","#cases"],
-              ["资质","#credentials"],
-              ["FAQ","#faq"],
-              ["联系","#contact"],
-            ].map(([label, href]) => (
-              <a key={href} href={href} className="transition hover:text-zinc-100">{label}</a>
+              ["电缆回收","/cable-recycling/", true],
+              ["变压器","/transformer-recycling/", true],
+              ["工厂拆除","/factory-demolition/", true],
+              ["报价","#price", false],
+              ["案例","#cases", false],
+              ["资质","#credentials", false],
+              ["FAQ","#faq", false],
+              ["联系","#contact", false],
+            ].map(([label, href, isSubPage]) => (
+              <a key={href} href={href} className="inline-flex items-center gap-1 transition hover:text-zinc-100">
+                {label}
+                {isSubPage && (
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-2.5 w-2.5 opacity-50">
+                    <path d="M3 9 9 3M5 3h4v4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </a>
             ))}
           </nav>
           <a href={PHONE_TEL} className="shrink-0 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-2 text-xs font-semibold tracking-wider text-amber-300 transition hover:bg-amber-400/20">
@@ -243,16 +260,23 @@ export default function App() {
         <div className="border-t border-white/[0.06] px-4 py-2.5 lg:hidden">
           <div className="flex gap-2 overflow-x-auto [scrollbar-width:none]">
             {[
-              ["电缆回收","/cable-recycling/"],
-              ["变压器","/transformer-recycling/"],
-              ["工厂拆除","/factory-demolition/"],
-              ["报价","#price"],
-              ["案例","#cases"],
-              ["资质","#credentials"],
-              ["FAQ","#faq"],
-              ["联系","#contact"],
-            ].map(([label, href]) => (
-              <a key={href} href={href} className="whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-zinc-300">{label}</a>
+              ["电缆回收","/cable-recycling/", true],
+              ["变压器","/transformer-recycling/", true],
+              ["工厂拆除","/factory-demolition/", true],
+              ["报价","#price", false],
+              ["案例","#cases", false],
+              ["资质","#credentials", false],
+              ["FAQ","#faq", false],
+              ["联系","#contact", false],
+            ].map(([label, href, isSubPage]) => (
+              <a key={href} href={href} className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-3 py-1.5 text-[11px] ${isSubPage ? "border-amber-400/25 bg-amber-400/[0.06] text-amber-300" : "border-white/10 bg-white/5 text-zinc-300"}`}>
+                {label}
+                {isSubPage && (
+                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" className="h-2.5 w-2.5 opacity-70">
+                    <path d="M3 9 9 3M5 3h4v4" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </a>
             ))}
           </div>
         </div>
@@ -283,7 +307,7 @@ export default function App() {
                 <br />
                 二手变压器买卖
                 <br />
-                <span className="text-zinc-400 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">长三角 · 上门服务</span>
+                <span className="text-zinc-300 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">长三角 · 上门服务</span>
               </h1>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
@@ -312,20 +336,10 @@ export default function App() {
                 </a>
               </div>
 
-              {/* 数据亮点 */}
-              <div className="mt-10 grid grid-cols-3 gap-4 border-t border-white/8 pt-8">
-                {[
-                  { val: "11", unit: "年", label: "行业经验" },
-                  { val: "14", unit: "城", label: "服务覆盖" },
-                  { val: "24", unit: "h", label: "最快上门" },
-                ].map(item => (
-                  <div key={item.label}>
-                    <div className="flex items-baseline gap-0.5">
-                      <span className="text-3xl font-bold text-amber-400 sm:text-4xl">{item.val}</span>
-                      <span className="text-sm font-semibold text-amber-400/70">{item.unit}</span>
-                    </div>
-                    <div className="mt-1 text-xs text-zinc-500">{item.label}</div>
-                  </div>
+              {/* 业务点 — 替代之前的数据带，数据统一放下方信任带，避免重复 */}
+              <div className="mt-10 flex flex-wrap gap-2 border-t border-white/8 pt-6">
+                {["铜芯 / 铝芯电缆", "10kV / 35kV 高压", "S 系列油浸变压器", "SCB 系列干变", "GGD / KYN28 开关柜", "整厂打包"].map(t => (
+                  <span key={t} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-zinc-400">{t}</span>
                 ))}
               </div>
             </div>
@@ -452,9 +466,9 @@ export default function App() {
                           <div className="text-sm font-semibold text-zinc-100">{it.name}</div>
                           <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] text-zinc-400">{it.spec}</span>
                         </div>
-                        <div className="mt-2 flex items-baseline gap-2">
+                        <div className="mt-2">
                           <span className="text-base font-bold tracking-tight text-amber-300">{it.price}</span>
-                          <span className="text-[10px] text-zinc-600">参考</span>
+                          <span className="ml-2 rounded border border-zinc-700/60 px-1.5 py-px text-[9px] tracking-wider text-zinc-500">参考价 · 以现场为准</span>
                         </div>
                         <div className="mt-1.5 text-xs leading-6 text-zinc-500">{it.note}</div>
                       </div>
@@ -683,8 +697,8 @@ export default function App() {
                 <p className="mt-5 max-w-md text-sm leading-7 text-zinc-300">
                   合法注册的再生资源回收企业，具备整厂设备处置所需完整资质，可对公结算、开具正规票据，合作流程清晰可追溯。
                 </p>
-                <a href="#contact" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-bold text-zinc-950 transition hover:-translate-y-0.5">
-                  索取资质复印件 →
+                <a href="#wechat-qr" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-bold text-zinc-950 transition hover:-translate-y-0.5">
+                  微信索取资质扫描件 →
                 </a>
               </div>
             </div>
@@ -862,7 +876,7 @@ export default function App() {
 
               <div className="border-t border-white/8 p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-14">
                 {/* 微信二维码 */}
-                <div className="mb-6 flex items-center gap-5 rounded-2xl border border-white/8 bg-white/[0.03] p-5">
+                <div id="wechat-qr" className="scroll-mt-28 mb-6 flex items-center gap-5 rounded-2xl border border-white/8 bg-white/[0.03] p-5">
                   <div className="relative flex h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white">
                     <img
                       src="/image/wechat-qr.png"
@@ -907,10 +921,9 @@ export default function App() {
         </section>
       </main>
 
-      {/* 桌面端：悬浮拨打 */}
-      {/* 桌面端：右下悬浮双 CTA */}
-      <div className="fixed bottom-7 right-7 z-50 hidden flex-col gap-3 lg:flex">
-        <a href="#contact" aria-label="微信咨询"
+      {/* 桌面端：右下悬浮双 CTA（滚到 footer 自动隐藏） */}
+      <div className={`fixed bottom-7 right-7 z-50 hidden flex-col gap-3 transition-opacity duration-300 lg:flex ${hideFloating ? "pointer-events-none opacity-0" : "opacity-100"}`}>
+        <a href="#wechat-qr" aria-label="微信咨询 · 跳到二维码"
           className="group flex items-center gap-2 rounded-full border border-green-500/40 bg-green-500/15 px-5 py-3 text-sm font-bold text-green-300 backdrop-blur transition hover:-translate-y-0.5 hover:bg-green-500/25">
           <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
             <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/>
@@ -926,8 +939,8 @@ export default function App() {
         </a>
       </div>
 
-      {/* 移动端：底部双 CTA 栏 */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-zinc-950/90 backdrop-blur-xl lg:hidden">
+      {/* 移动端：底部双 CTA 栏（滚到 footer 自动隐藏） */}
+      <div className={`fixed bottom-0 left-0 right-0 z-50 border-t border-white/10 bg-zinc-950/90 backdrop-blur-xl transition-transform duration-300 lg:hidden ${hideFloating ? "translate-y-full" : "translate-y-0"}`}>
         <div className="grid grid-cols-2 gap-2 p-3" style={{paddingBottom:"max(12px,env(safe-area-inset-bottom))"}}>
           <a href={PHONE_TEL} className="flex items-center justify-center gap-2 rounded-xl bg-amber-400 py-3 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-400/25">
             <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
@@ -935,7 +948,7 @@ export default function App() {
             </svg>
             立即电话
           </a>
-          <a href="#contact" className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-3 text-sm font-semibold text-zinc-200">
+          <a href="#wechat-qr" className="flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 py-3 text-sm font-semibold text-zinc-200">
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-green-400">
               <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2z"/>
             </svg>
@@ -945,7 +958,7 @@ export default function App() {
       </div>
 
       {/* ── 页脚 ── */}
-      <footer className="border-t border-white/[0.06] bg-zinc-950">
+      <footer ref={footerRef} className="border-t border-white/[0.06] bg-zinc-950">
         <div className="mx-auto max-w-7xl px-5 py-12 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
