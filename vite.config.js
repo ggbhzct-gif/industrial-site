@@ -2,6 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 const STATIC_SLUGS = [
   // 城市页
   'shanghai','suzhou','kunshan','wuxi','changzhou','nanjing',
@@ -26,5 +28,5 @@ const cityPagesDev = () => ({
 })
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), cityPagesDev()],
+  plugins: [react(), tailwindcss(), cityPagesDev(), cloudflare()],
 })

@@ -8,3 +8,10 @@ dist-ssr
 
 # 真实站点配置（含电话、备案号、统计 ID），不进公开仓库
 site.config.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
