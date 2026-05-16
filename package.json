@@ -10,7 +10,8 @@
     "gen:cities": "node scripts/gen-city-pages.mjs",
     "apply:config": "node scripts/apply-config.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "placeholder:assets": "node scripts/create-placeholder-assets.mjs"
+    "placeholder:assets": "node scripts/create-placeholder-assets.mjs",
+    "deploy": "npm run build && npx -y wrangler@4.85.0 deploy"
   },
   "dependencies": {
     "react": "^18.3.1",
