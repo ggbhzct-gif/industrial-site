@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "gen:cities": "node scripts/gen-city-pages.mjs",
     "apply:config": "node scripts/apply-config.mjs",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "placeholder:assets": "node scripts/create-placeholder-assets.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

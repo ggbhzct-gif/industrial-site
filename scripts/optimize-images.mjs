@@ -52,7 +52,7 @@ const overlaySvg = Buffer.from(`
   </defs>
   <rect width="1200" height="630" fill="url(#g)"/>
   <text x="80" y="430" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="64" font-weight="800" fill="#fcd34d" letter-spacing="2">废旧电缆回收 · 二手变压器</text>
-  <text x="80" y="500" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="34" font-weight="600" fill="#ffffff" letter-spacing="1">长三角及安徽 · 上门高价回收 · 当日响应</text>
+  <text x="80" y="500" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="34" font-weight="600" fill="#ffffff" letter-spacing="1">长三角及安徽 · 上门评估 · 现场过磅</text>
   <text x="80" y="560" font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="26" font-weight="500" fill="#d4d4d8" letter-spacing="1">新兴电力设备 · www.xinxingdianlis.com</text>
 </svg>
 `);

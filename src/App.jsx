@@ -10,7 +10,7 @@ const services = [
     num: "01",
     title: "废旧电缆回收",
     tags: ["铜芯电缆", "铝芯电缆", "高压电缆"],
-    desc: "面向工厂搬迁、园区改造、工地余料与配电房更新场景，提供废旧电缆上门回收与现场评估，按当日铜价出价，透明不压价。",
+    desc: "面向工厂搬迁、园区改造、工地余料与配电房更新场景，提供废旧电缆上门回收与现场过磅。计价公式公开（净金属重 × 当日有色现价 × 系数），结算依据可逐项核算。",
     href: "/cable-recycling/",
   },
   {
@@ -37,7 +37,7 @@ const services = [
 ];
 
 const advantages = [
-  { icon: "↑", title: "高价回收", desc: "参照当日铜价与二手市场行情，给出同类最具竞争力报价。" },
+  { icon: "↑", title: "公式计价", desc: "按净铜/净铝重量 × 当日长江有色金属现价 × 系数现场出价，公式公开可核算。" },
   { icon: "◎", title: "上门评估", desc: "全程免费上门，专业人员现场核查铭牌、型号与数量。" },
   { icon: "⚡", title: "当日响应", desc: "7×12h 咨询接待，确认信息后最快当日安排上门排期。" },
   { icon: "✓", title: "手续合规", desc: "提供正规交接单据与收据，资产处置流程合规，方便财务做账。" },
@@ -73,9 +73,9 @@ const cases = [
   },
   {
     img: "/image/新兴电力回收-电缆盘回收现场.webp",
-    alt: "废旧电缆高价回收——电缆盘回收现场称重结算",
+    alt: "废旧电缆回收——电缆盘现场称重结算作业",
     badge: "电缆回收",
-    title: "废旧电缆高价回收对接",
+    title: "废旧电缆回收对接",
     desc: "工地余料、库存积压、拆除铜芯铝芯及高压电缆回收，上门称重，参照铜价，现场结算。",
     large: false,
   },
@@ -120,32 +120,50 @@ const faqs = [
   { q: "如何防止被低价收购？", a: "建议：1) 同时咨询 2–3 家回收方对比报价；2) 要求对方说明计价公式（铜/铝价 × 系数）；3) 过磅时到场监督；4) 查看对方是否具备再生资源经营资质。我们报价公式完全透明，欢迎对比。" },
 ];
 
-/* 信任数据带 */
+/* 能力承诺带（4 项可验证的"方法"，而非编造的"历史数字"）
+ * 真实性原则：只展示可由客户当场验证的承诺，不写无法核实的累计量、客户数、年限。 */
 const trustStats = [
-  { val: "11", unit: "年", label: "行业经验" },
-  { val: "528", unit: "家", label: "合作企业" },
-  { val: "3,247", unit: "吨", label: "累计回收" },
-  { val: "24", unit: "h",  label: "最快响应" },
+  {
+    head: "计价",
+    sub: "公式公开",
+    label: "现场写出 铜价 × 系数 计算依据",
+  },
+  {
+    head: "过磅",
+    sub: "客户监督",
+    label: "地磅清单当场签字 全程可拍摄",
+  },
+  {
+    head: "单据",
+    sub: "对公结算",
+    label: "过磅单 收据 发票 财务可入账",
+  },
+  {
+    head: "覆盖",
+    sub: "14 城上门",
+    label: "长三角 10 城 + 安徽 4 城",
+  },
 ];
 
-/* 价格参考指南（SEO 长尾内容；区间随市场波动每月更新） */
+/* 计价方法指南（不展示具体 RMB 区间——铜铝价天天波动，写死的数字一定假；
+ * 改为公开计算公式，让客户用当日长江有色金属网现价自己算） */
 const priceGuide = [
   {
     cat: "废旧电缆",
     items: [
-      { name: "铜芯电力电缆 YJV",     spec: "3×95+1×50 及以上",   price: "¥56,000–62,000 / 吨", note: "按净铜重量 × 当日长江有色铜价 × 回收系数" },
-      { name: "铝芯电力电缆 YJLV",    spec: "3×120+1×70 及以上",  price: "¥14,000–17,000 / 吨", note: "按净铝重量 × 当日铝价 × 回收系数" },
-      { name: "高压交联电缆 YJV22",   spec: "10kV / 35kV",          price: "¥58,000–65,000 / 吨", note: "截面大、铜含量高，单价相对优于普通低压电缆" },
-      { name: "控制电缆 KVV",         spec: "多芯控制线",            price: "¥42,000–52,000 / 吨", note: "按铜芯折算，外护套与钢带重量剔除" },
+      { name: "铜芯电力电缆 YJV",     spec: "3×95+1×50 及以上",   formula: "净铜重量 × 当日长江铜现价 × 0.85–0.92", note: "系数受铜芯纯度、外护套钢带剥离难度影响" },
+      { name: "铝芯电力电缆 YJLV",    spec: "3×120+1×70 及以上",  formula: "净铝重量 × 当日长江铝现价 × 0.85–0.90", note: "铜价目前约为铝价 3–4 倍，请按实际芯材计算" },
+      { name: "高压交联电缆 YJV22",   spec: "10kV / 35kV",          formula: "净铜重量 × 当日长江铜现价 × 0.88–0.93", note: "截面大、铜含量高，剥离效率高，系数略优" },
+      { name: "控制电缆 KVV",         spec: "多芯控制线",            formula: "净铜重量 × 当日长江铜现价 × 0.78–0.85", note: "外护套、屏蔽层、钢带需剔除后按净铜结算" },
     ],
   },
   {
     cat: "二手变压器",
     items: [
-      { name: "油浸式变压器 S11/S13",    spec: "315–2500kVA",                    price: "¥6,000–28,000 / 台", note: "按品牌、容量、年限、外观综合评估" },
-      { name: "干式变压器 SCB10/SCB13",  spec: "400–2000kVA",                    price: "¥8,000–32,000 / 台", note: "绕组完整、铭牌清晰、近 5 年内出厂者估价更高" },
-      { name: "箱式变电站",              spec: "户外整套",                        price: "¥30,000 起 / 套",     note: "可连箱体整体回收，亦可拆分评估" },
-      { name: "开关柜 / 配电柜",         spec: "GGD / GCK / KYN28 / MNS",        price: "¥1,500–5,000 / 面",   note: "按柜体数量、铜排截面、断路器品牌配置估价" },
+      { name: "油浸式变压器 S11/S13",    spec: "315–2500kVA",                  formula: "评估维度：品牌 + 容量 + 出厂年份 + 外观 + 历史检测", note: "一线品牌（特变 / 正泰 / ABB 等）+ 5 年内出厂溢价明显" },
+      { name: "干式变压器 SCB10/SCB13",  spec: "400–2000kVA",                  formula: "评估维度：品牌 + 容量 + 绕组完整度 + 铭牌清晰 + 出厂年份", note: "10 年内出厂、铭牌完整者按市场价上限折算" },
+      { name: "箱式变电站",              spec: "户外整套（YB / ZGS）",          formula: "整体或拆分（变压器 + 高低压柜 + 箱体）按件评估", note: "现场看货后给出整套或拆分两种报价" },
+      { name: "开关柜 / 配电柜",         spec: "GGD / GCK / KYN28 / MNS",      formula: "型号 × 数量 × 铜排截面 × 断路器品牌（施耐德 / ABB / 正泰）", note: "高压柜（KYN28）单价远高于低压柜（GGD）" },
     ],
   },
 ];
@@ -158,28 +176,26 @@ const credentials = [
   { title: "场地与过磅设备",  desc: "固定堆场 + 地磅，全程可视化",         img: "/image/cert/过磅地磅.jpg" },
 ];
 
-/* 客户合作案例（涉及客户隐私，姓氏化名 + 模糊地点；语气保持中性，避免销售剧本感） */
-const testimonials = [
+/* 行业服务说明（替代"客户评价"——客户案例需授权，无授权前不展示具体证言；
+ * 改为按"服务对象类型 × 典型场景 × 我们的处置方式"展开，全部为可执行的方法描述） */
+const serviceSegments = [
   {
-    name: "W 先生",
-    role: "苏州工业园区 · 机械制造行业 设备主管",
-    project: "整厂搬迁",
-    spec: "干式变压器 + 高压电缆批量",
-    text: "对比了几家报价，他们现场把计价公式说清楚了，过磅当场出单，整个流程财务能直接做账。",
+    industry: "制造业 · 整厂搬迁与产线升级",
+    typical: "电子 / 光伏 / 精密机械 / 新能源汽车工厂",
+    scope: "干式变压器、母线槽、开关柜、高低压电缆整批处置",
+    method: "现场清点 → 铭牌登记 → 公式估价 → 分类清运 → 过磅结算 → 票据交付。提供完整资产处置档案，便于企业财务与审计留痕。",
   },
   {
-    name: "C 女士",
-    role: "上海 · 物业管理 配电改造项目",
-    project: "配电改造",
-    spec: "油浸变压器 + 低压配电柜",
-    text: "前期发铭牌照片就给了大致区间，到场实测后差异不大，正规发票当周开具。",
+    industry: "物业 / 园区 · 配电房改造",
+    typical: "住宅小区、产业园区、写字楼配电室",
+    scope: "S 系列油浸变压器、低压配电柜、控制电缆、计量设备",
+    method: "支持业委会 / 物业方现场监督，过磅清单当场签字；油浸变压器内残油由我们的危废合作渠道合规处置并留存联单。",
   },
   {
-    name: "L 工",
-    role: "无锡 · 电气工程承包商 现场负责人",
-    project: "工地余料",
-    spec: "铜芯电缆批次回收",
-    text: "工地零散电缆比较多，照片估价省去了来回跑。称重和铜价系数都透明，长期合作。",
+    industry: "电气工程 / 工地余料",
+    typical: "电气施工方、安装公司、电缆经销库存",
+    scope: "工地剩余 YJV / KVV / 工地剪头线、库存积压电缆",
+    method: "微信发铭牌图与卷数即可初步估价；批量上门提货，按净铜 / 净铝重量 × 当日金属现价 × 系数现场结算。",
   },
 ];
 
@@ -299,7 +315,7 @@ export default function App() {
             <div className="flex flex-col justify-center">
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] text-zinc-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                长三角 & 安徽 · 专业回收团队
+                长三角 10 城 + 安徽 4 城 · 上门评估
               </div>
 
               <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
@@ -311,7 +327,7 @@ export default function App() {
               </h1>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-                新兴电力设备专注长三角及安徽地区废旧电缆高价回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">上门评估 · 当日响应 · 现场结算</strong>。
+                新兴电力设备承接长三角及安徽地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">计价公式公开 · 现场过磅结算 · 提供正规票据</strong>。
               </p>
 
               {/* 信任小徽章 */}
@@ -366,8 +382,8 @@ export default function App() {
                     <div className="mt-0.5 text-xs font-semibold text-zinc-200">上海 · 苏州 · 无锡 · 南京 · 杭州 · 合肥…</div>
                   </div>
                   <div className="rounded-xl border border-emerald-400/20 bg-emerald-950/60 px-4 py-3 backdrop-blur-xl">
-                    <div className="text-[10px] text-emerald-400">状态</div>
-                    <div className="mt-0.5 text-xs font-semibold text-emerald-300">接单中</div>
+                    <div className="text-[10px] text-emerald-400">服务时段</div>
+                    <div className="mt-0.5 text-xs font-semibold text-emerald-300">每日 08:00–20:00</div>
                   </div>
                 </div>
               </div>
@@ -381,19 +397,22 @@ export default function App() {
         </section>
 
         {/* ── 信任数据带 ── */}
-        <section aria-label="服务数据" className="border-y border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <div className="grid grid-cols-2 divide-x divide-white/[0.06] md:grid-cols-4">
+        <section aria-label="服务承诺" className="border-y border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent">
+          <div className="mx-auto max-w-7xl px-5 py-6 lg:px-8">
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/[0.06] md:grid-cols-4">
               {trustStats.map((s) => (
-                <div key={s.label} className="flex flex-col items-center justify-center gap-1 py-7 text-center">
-                  <div className="flex items-baseline gap-0.5">
-                    <span className="text-3xl font-black tracking-tight text-white sm:text-4xl">{s.val}</span>
-                    <span className="text-sm font-bold text-amber-400">{s.unit}</span>
+                <div key={s.head} className="flex flex-col gap-1.5 bg-zinc-950 p-5">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-xl font-black tracking-tight text-white">{s.head}</span>
+                    <span className="text-xs font-bold text-amber-400">· {s.sub}</span>
                   </div>
-                  <div className="text-[11px] tracking-widest text-zinc-500">{s.label}</div>
+                  <div className="text-[11px] leading-5 text-zinc-500">{s.label}</div>
                 </div>
               ))}
             </div>
+            <p className="mt-3 text-center text-[11px] text-zinc-600">
+              本站不展示无法核实的累计回收量与客户数；以上 4 项均可在咨询、上门、结算各环节当场验证。
+            </p>
           </div>
         </section>
 
@@ -442,13 +461,13 @@ export default function App() {
           <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
             <div className="mb-12 grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Price Guide</p>
-                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">回收价格参考指南</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Price Method</p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">公开计价方式</h2>
               </div>
               <p className="text-sm leading-7 text-zinc-400">
-                下表为废旧电缆与二手变压器的常见品类参考价区间（<span className="text-zinc-200">2025 Q4 长三角市场行情</span>），实际价格以<strong className="text-zinc-200">当日铜/铝现货行情</strong>、设备状态、数量与物流条件综合评估为准。
+                我们<strong className="text-zinc-200">不写"今日多少钱一吨"</strong>——铜铝现货每天波动 1–3%，写死的数字第二天就过期。下表公开<strong className="text-zinc-200">每个品类的计算公式</strong>，您查当日铜价（如 <a href="https://www.ccmn.cn/" target="_blank" rel="noopener" className="text-amber-300 underline-offset-2 hover:underline">长江有色金属网</a> / 上海期货）即可自行核算。
                 <br className="hidden md:block"/>
-                <strong className="text-zinc-200">建议：</strong>拍照发微信 <span className="text-amber-300">{WECHAT}</span>，10 分钟内即可给出针对性报价。
+                <strong className="text-zinc-200">建议：</strong>拍照发微信 <span className="text-amber-300">{WECHAT}</span>，结合您的具体规格、数量与位置，给出含运输成本的针对性报价。
               </p>
             </div>
 
@@ -466,11 +485,11 @@ export default function App() {
                           <div className="text-sm font-semibold text-zinc-100">{it.name}</div>
                           <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] text-zinc-400">{it.spec}</span>
                         </div>
-                        <div className="mt-2">
-                          <span className="text-base font-bold tracking-tight text-amber-300">{it.price}</span>
-                          <span className="ml-2 rounded border border-zinc-700/60 px-1.5 py-px text-[9px] tracking-wider text-zinc-500">参考价 · 以现场为准</span>
+                        <div className="mt-2.5 rounded-md border border-amber-400/15 bg-amber-400/[0.04] px-3 py-2">
+                          <div className="text-[10px] font-semibold uppercase tracking-wider text-amber-400/70">计价方式</div>
+                          <div className="mt-0.5 font-mono text-[12.5px] leading-5 text-amber-200">{it.formula}</div>
                         </div>
-                        <div className="mt-1.5 text-xs leading-6 text-zinc-500">{it.note}</div>
+                        <div className="mt-2 text-xs leading-6 text-zinc-500">{it.note}</div>
                       </div>
                     ))}
                   </div>
@@ -608,11 +627,11 @@ export default function App() {
         <section id="gallery" className="scroll-mt-28 mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
           <div className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Field Photos</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">真实作业现场</h2>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Work Types</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">作业类型示意</h2>
             </div>
             <p className="max-w-sm text-sm leading-7 text-zinc-500">
-              现场实拍：电缆堆场、配电柜拆解、变压器回收——所见即所得，拒绝美化。
+              下列为我们日常承接的作业类型示意——电缆堆场、配电柜拆解、变压器回收等。上门时欢迎参观我司堆场与过磅设备核实作业能力。
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -638,9 +657,7 @@ export default function App() {
                   </div>
                   <figcaption className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-4">
                     <span className="text-sm font-semibold text-zinc-100">{g.label}</span>
-                    {idx === 0 && (
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-amber-400/80">现场实拍</span>
-                    )}
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">类型示意</span>
                   </figcaption>
                 </figure>
               </a>
@@ -648,34 +665,44 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── 客户评价 ── */}
+        {/* ── 行业服务说明（替代客户评价；客户案例需授权，无授权前不展示具体证言） ── */}
         <section id="testimonials" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
           <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
             <div className="mb-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Clients Say</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">合作企业真实反馈</h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400">来自长三角机械制造、物业管理、电气工程等不同行业客户的真实评价。</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Service Patterns</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">不同行业的服务方式</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400">
+                我们不展示无授权的客户证言，但下面列出三类典型服务对象与对应处置流程——可直接判断我们是否覆盖您的场景。
+              </p>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
-              {testimonials.map((t) => (
-                <figure key={t.name} className="group relative flex h-full flex-col rounded-[1.5rem] border border-white/8 bg-zinc-950/60 p-7 transition hover:border-amber-400/20">
+              {serviceSegments.map((s, i) => (
+                <article key={s.industry} className="group relative flex h-full flex-col rounded-[1.5rem] border border-white/8 bg-zinc-950/60 p-7 transition hover:border-amber-400/20">
                   <div className="flex items-center gap-2">
-                    <span className="rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-0.5 text-[10px] font-semibold text-amber-300">{t.project}</span>
+                    <span className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] font-bold tracking-wider text-zinc-400">0{i + 1}</span>
+                    <span className="text-[11px] font-semibold tracking-wider text-amber-400/80">服务对象</span>
                   </div>
-                  <div className="mt-3 rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2 text-[11px] leading-5 text-zinc-400">
-                    <span className="text-zinc-500">项目体量：</span>{t.spec}
+                  <h3 className="mt-3 text-base font-bold leading-snug text-white">{s.industry}</h3>
+                  <div className="mt-3 space-y-2.5 text-xs leading-6 text-zinc-400">
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">典型客户</div>
+                      <div className="text-zinc-300">{s.typical}</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">处置范围</div>
+                      <div className="text-zinc-300">{s.scope}</div>
+                    </div>
                   </div>
-                  <svg viewBox="0 0 32 24" fill="currentColor" className="mt-5 h-6 w-6 text-amber-400/40">
-                    <path d="M0 24V12C0 5.373 5.373 0 12 0v4c-4.418 0-8 3.582-8 8h8v12H0Zm20 0V12c0-6.627 5.373-12 12-12v4c-4.418 0-8 3.582-8 8h8v12H20Z"/>
-                  </svg>
-                  <blockquote className="mt-3 flex-1 text-sm leading-7 text-zinc-300">{t.text}</blockquote>
-                  <figcaption className="mt-6 border-t border-white/8 pt-4">
-                    <div className="text-sm font-semibold text-white">{t.name}</div>
-                    <div className="mt-0.5 text-xs text-zinc-500">{t.role}</div>
-                  </figcaption>
-                </figure>
+                  <div className="mt-5 flex-1 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-xs leading-6 text-zinc-400">
+                    <div className="text-[10px] font-semibold uppercase tracking-wider text-amber-400/70">处置方式</div>
+                    <div className="mt-1 text-zinc-300">{s.method}</div>
+                  </div>
+                </article>
               ))}
             </div>
+            <p className="mt-6 text-center text-[11px] text-zinc-600">
+              真实客户案例待授权后展示——大宗合作可经客户书面授权后出示完整档案（合同、过磅单、现场照片、运输联单）。
+            </p>
           </div>
         </section>
 
@@ -999,8 +1026,13 @@ export default function App() {
               </ul>
             </div>
           </div>
-          <div className="mt-10 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
-            <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器专业回收</div>
+          {/* 真实性声明 */}
+          <div className="mt-10 rounded-xl border border-white/[0.05] bg-white/[0.015] p-4 text-[11px] leading-6 text-zinc-500">
+            <strong className="text-zinc-300">关于本站数据真实性：</strong>
+            本站<strong className="text-zinc-400">不展示</strong>无法核实的累计回收量 / 客户家数 / 行业经验年数等数字；价格表为<strong className="text-zinc-400">公开计算公式</strong>而非"今日报价"，请按当日长江有色金属网现价自行核算。客户案例需经客户书面授权后展示，未授权前以"行业服务方式"代替。资质照片、公司位置、微信二维码以实际上传为准。
+          </div>
+          <div className="mt-6 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
+            <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器回收</div>
             <div>
               <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener" className="hover:text-zinc-500">皖ICP备XXXXXXXX号</a>
             </div>
