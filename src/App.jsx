@@ -168,14 +168,6 @@ const priceGuide = [
   },
 ];
 
-/* 企业资质与保障（图片放 public/image/cert/，命名见 img 字段；未替换前显示占位） */
-const credentials = [
-  { title: "营业执照",        desc: "合法工商注册主体，可对公结算",        img: "/image/cert/营业执照.jpg" },
-  { title: "再生资源经营备案", desc: "资质齐全，规范处置，合规票据",        img: "/image/cert/再生资源备案.jpg" },
-  { title: "道路运输许可",    desc: "自有车辆，大宗设备安全转运",          img: "/image/cert/运输许可.jpg" },
-  { title: "场地与过磅设备",  desc: "固定堆场 + 地磅，全程可视化",         img: "/image/cert/过磅地磅.jpg" },
-];
-
 /* 行业服务说明（替代"客户评价"——客户案例需授权，无授权前不展示具体证言；
  * 改为按"服务对象类型 × 典型场景 × 我们的处置方式"展开，全部为可执行的方法描述） */
 const serviceSegments = [
@@ -227,7 +219,7 @@ function FAQItem({ q, a }) {
 
 /* ── 主页面 ───────────────────────────────────────── */
 export default function App() {
-  // 滚到 footer 时隐藏右下/底部悬浮 CTA，避免遮挡公司地址、地图
+  // 滚到 footer 时隐藏右下/底部悬浮 CTA，避免遮挡公司地址与备案信息
   const footerRef = useRef(null);
   const [hideFloating, setHideFloating] = useState(false);
   useEffect(() => {
@@ -271,7 +263,6 @@ export default function App() {
               ["工厂拆除","/factory-demolition/", true],
               ["报价","#price", false],
               ["案例","#cases", false],
-              ["资质","#credentials", false],
               ["FAQ","#faq", false],
               ["联系","#contact", false],
             ].map(([label, href, isSubPage]) => (
@@ -298,7 +289,6 @@ export default function App() {
               ["工厂拆除","/factory-demolition/", true],
               ["报价","#price", false],
               ["案例","#cases", false],
-              ["资质","#credentials", false],
               ["FAQ","#faq", false],
               ["联系","#contact", false],
             ].map(([label, href, isSubPage]) => (
@@ -723,67 +713,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── 资质与保障 ── */}
-        <section id="credentials" className="scroll-mt-28 mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-          {/* 全幅变电站图带 */}
-          <div className="relative mb-14 overflow-hidden rounded-[2rem] border border-white/10">
-            <img
-              src="/image/新兴电力回收-变电站夜景.webp"
-              alt="新兴电力设备 · 合规再生资源回收企业 · 变电站夜景"
-              loading="lazy"
-              className="h-72 w-full object-cover sm:h-96"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/60 to-transparent" />
-            <div className="absolute inset-0 flex items-center">
-              <div className="max-w-xl px-8 sm:px-14">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Credentials</p>
-                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-5xl">资质齐全<br/>合规回收</h2>
-                <p className="mt-5 max-w-md text-sm leading-7 text-zinc-300">
-                  合法注册的再生资源回收企业，具备整厂设备处置所需完整资质，可对公结算、开具正规票据，合作流程清晰可追溯。
-                </p>
-                <a href="#wechat-qr" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-bold text-zinc-950 transition hover:-translate-y-0.5">
-                  微信索取资质扫描件 →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* 资质卡（带证照实拍） */}
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {credentials.map((c, i) => (
-              <a
-                key={c.title}
-                href={c.img}
-                target="_blank"
-                rel="noopener"
-                className="group relative overflow-hidden rounded-2xl border border-white/8 bg-zinc-950 transition hover:border-amber-400/40">
-                {/* 证照实拍占位 / 真实图 */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900">
-                  <img
-                    src={c.img}
-                    alt={`新兴电力设备 · ${c.title}`}
-                    loading="lazy"
-                    onError={(e) => { e.currentTarget.style.opacity = "0"; }}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                  />
-                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-center text-[10px] tracking-widest text-zinc-600">
-                    证照待上传
-                  </div>
-                  <div className="absolute right-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-amber-400/90 text-zinc-950">
-                    <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5"><path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clipRule="evenodd"/></svg>
-                  </div>
-                  <span className="absolute left-3 top-3 z-10 rounded-md bg-black/50 px-2 py-0.5 text-[10px] font-bold tracking-wider text-white backdrop-blur">{String(i + 1).padStart(2, "0")} / 04</span>
-                </div>
-                <div className="p-5">
-                  <div className="text-sm font-bold text-white">{c.title}</div>
-                  <p className="mt-1.5 text-xs leading-6 text-zinc-400">{c.desc}</p>
-                  <div className="mt-3 inline-flex items-center gap-1 text-[10px] font-semibold text-amber-400/80">点击查看大图 →</div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
         {/* ── 咨询流程 ── */}
         <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
@@ -886,7 +815,7 @@ export default function App() {
 
                 <div className="mt-4 text-xs text-zinc-600">服务时段：每日 08:00 – 20:00 · 急单可协商</div>
 
-                {/* 公司地址 + 静态地图 */}
+                {/* 公司地址 */}
                 <div className="mt-6 rounded-2xl border border-white/8 bg-white/[0.02] p-5">
                   <div className="flex items-start gap-3">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 text-amber-400">
@@ -900,19 +829,6 @@ export default function App() {
                       <div className="mt-2 text-[11px] leading-5 text-zinc-500">
                         长三角及安徽全境上门看货，欢迎实地考察堆场与过磅设备
                       </div>
-                    </div>
-                  </div>
-                  {/* 静态地图（待替换：截图保存为 public/image/map.jpg） */}
-                  <div className="mt-4 overflow-hidden rounded-xl border border-white/8">
-                    <img
-                      src="/image/map.jpg"
-                      alt="新兴电力设备 公司位置"
-                      loading="lazy"
-                      onError={(e) => { e.currentTarget.style.display = "none"; e.currentTarget.nextElementSibling.style.display = "flex"; }}
-                      className="h-40 w-full object-cover"
-                    />
-                    <div style={{display:"none"}} className="h-40 w-full items-center justify-center bg-gradient-to-br from-zinc-800 to-zinc-900 text-[11px] text-zinc-600">
-                      地图截图待上传 (public/image/map.jpg)
                     </div>
                   </div>
                 </div>
@@ -1046,7 +962,7 @@ export default function App() {
           {/* 真实性声明 */}
           <div className="mt-10 rounded-xl border border-white/[0.05] bg-white/[0.015] p-4 text-[11px] leading-6 text-zinc-500">
             <strong className="text-zinc-300">关于本站数据真实性：</strong>
-            本站<strong className="text-zinc-400">不展示</strong>无法核实的累计回收量 / 客户家数 / 行业经验年数等数字；价格表为<strong className="text-zinc-400">公开计算公式</strong>而非"今日报价"，请按当日长江有色金属网现价自行核算。客户案例需经客户书面授权后展示，未授权前以"行业服务方式"代替。资质照片、公司位置、微信二维码以实际上传为准。
+            本站<strong className="text-zinc-400">不展示</strong>无法核实的累计回收量 / 客户家数 / 行业经验年数等数字；价格表为<strong className="text-zinc-400">公开计算公式</strong>而非"今日报价"，请按当日长江有色金属网现价自行核算。客户案例需经客户书面授权后展示，未授权前以"行业服务方式"代替。微信二维码以实际上传为准。
           </div>
           <div className="mt-6 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
             <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器回收</div>
