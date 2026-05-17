@@ -237,6 +237,23 @@ export default function App() {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!window.location.hash) return;
+
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const scrollToHashTarget = () => {
+      document.getElementById(id)?.scrollIntoView({ block: "start" });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToHashTarget);
+    const timer = window.setTimeout(scrollToHashTarget, 120);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen scroll-smooth bg-zinc-950 pb-20 text-white selection:bg-amber-300 selection:text-zinc-950 lg:pb-0">
 
