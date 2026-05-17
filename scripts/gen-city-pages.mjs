@@ -364,8 +364,8 @@ const headerHtml = (activeSlug) => `
     <a href="/cable-recycling/" ${activeSlug==="cable-recycling"?'style="color:#fcd34d"':""}>废旧电缆</a>
     <a href="/transformer-recycling/" ${activeSlug==="transformer-recycling"?'style="color:#fcd34d"':""}>二手变压器</a>
     <a href="/factory-demolition/" ${activeSlug==="factory-demolition"?'style="color:#fcd34d"':""}>工厂拆除</a>
-    <a href="/#regions">服务城市</a>
-    <a href="/#faq">常见问题</a>
+    <a href="#regions">服务城市</a>
+    <a href="#faq">常见问题</a>
   </nav>
   <a href="${PHONE_TEL}" class="btn btn-primary">${PHONE}</a>
 </div></header>`;
@@ -462,7 +462,7 @@ ${headerHtml(c.slug)}
     </div>
     <div class="ctas" style="margin-top:24px">
       <a href="${PHONE_TEL}" class="btn btn-primary">📞 立即免费报价 · ${PHONE}</a>
-      <a href="/" class="btn btn-ghost">查看完整案例 →</a>
+      <a href="#case" class="btn btn-ghost">查看完整案例 →</a>
     </div>
   </div></section>
 
@@ -484,14 +484,14 @@ ${headerHtml(c.slug)}
     </div>
   </div></section>
 
-  <section><div class="wrap">
+  <section id="case"><div class="wrap">
     <div class="kicker">Local Case · ${c.name}</div>
     <h2>${c.name}本地案例参考</h2>
     <p class="bigp">${c.caseNote}</p>
     <p style="color:#71717a;font-size:13px;margin-top:8px">说明：上述案例规格与时间已脱敏处理，正式合作前可经客户授权后出示完整档案。</p>
   </div></section>
 
-  <section><div class="wrap">
+  <section id="regions"><div class="wrap">
     <div class="kicker">Local Coverage</div>
     <h2>${c.name}上门服务区域</h2>
     <p class="lead">以下区县/开发区均已建立本地服务响应，${c.name}核心区最快 24 小时内到场。</p>
@@ -593,7 +593,7 @@ ${headerHtml(s.slug)}
     <p>${s.desc}</p>
     <div class="ctas" style="margin-top:24px">
       <a href="${PHONE_TEL}" class="btn btn-primary">📞 立即免费报价 · ${PHONE}</a>
-      <a href="/#regions" class="btn btn-ghost">查看服务城市 →</a>
+      <a href="#regions" class="btn btn-ghost">查看服务城市 →</a>
     </div>
   </div></section>
 
