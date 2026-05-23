@@ -10,7 +10,7 @@ const services = [
     num: "01",
     title: "废旧电缆回收",
     tags: ["铜芯电缆", "铝芯电缆", "高压电缆"],
-    desc: "面向工厂搬迁、园区改造、工地余料与配电房更新场景，提供废旧电缆上门回收与现场过磅。计价公式公开（净金属重 × 当日有色现价 × 系数），结算依据可逐项核算。",
+    desc: "面向工厂搬迁、园区改造、工地余料与配电房更新场景，提供废旧电缆上门回收与现场过磅。按材质、规格、重量和清运条件评估，结算依据清楚。",
     href: "/cable-recycling/",
   },
   {
@@ -37,7 +37,7 @@ const services = [
 ];
 
 const advantages = [
-  { icon: "↑", title: "公式计价", desc: "按净铜/净铝重量 × 当日长江有色金属现价 × 系数现场出价，公式公开可核算。" },
+  { icon: "↑", title: "报价透明", desc: "按材质、规格、重量、成色、行情与清运条件现场说明报价依据。" },
   { icon: "◎", title: "上门评估", desc: "全程免费上门，专业人员现场核查铭牌、型号与数量。" },
   { icon: "⚡", title: "当日响应", desc: "7×12h 咨询接待，确认信息后最快当日安排上门排期。" },
   { icon: "✓", title: "手续合规", desc: "提供正规交接单据与收据，资产处置流程合规，方便财务做账。" },
@@ -108,25 +108,24 @@ const steps = [
 ];
 
 const faqs = [
-  { q: "废旧电缆回收价格怎么算？一米多少钱？", a: "废旧电缆回收按重量结算而非长度，价格主要取决于铜/铝芯含量、线径、屏蔽结构及当日长江有色铜价（Cu1 现货）。以 YJV 3×95+1×50 铜芯电缆为例，每米净铜约 3.4kg，按当日铜价再根据回收系数折算。我们提供免费上门称重 + 现场出价，价格透明不压价。" },
+  { q: "废旧电缆回收价格怎么算？一米多少钱？", a: "废旧电缆回收通常按重量和材质评估，不能只按长度报价。价格主要取决于铜/铝芯含量、线径、屏蔽结构、外护套、现场拆卸难度和当日金属行情。建议拍铭牌和实物图发微信，我们可先给出初步范围，再现场称重确认。" },
   { q: "二手变压器回收需要提供哪些信息？", a: "建议提前拍摄变压器铭牌照片（含型号、容量、电压、生产厂家、出厂日期）、外观实景图及台数，通过微信或电话发给我们。我们会根据品牌、容量、使用年限、外观状态快速给出初步收购意向，支持上门看货确认最终价格。" },
   { q: "服务范围覆盖哪些城市？", a: "主要覆盖长三角地区及安徽省，包括上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州，以及安徽省合肥、芜湖、马鞍山、滁州等主要城市均可上门服务。非核心城市的整厂拆除项目也可来电协商。" },
   { q: "工厂搬迁设备处理多久可以上门？", a: "电话或微信沟通需求并发送设备图片后，我们通常可在 1–3 个工作日内安排上门评估；急单可优先协调，根据项目规模灵活排期。长三角核心区域最快 24 小时内到场。" },
   { q: "支持油浸式和干式变压器回收吗？", a: "支持。我们回收 S9/S11/S13/SCB10/SCB13 等油浸式与干式变压器，及配套开关柜（GGD、GCK、KYN28）、配电柜、母线槽等配电设备，无论单台还是整套配电房均可咨询，不限规模。" },
-  { q: "铜芯电缆与铝芯电缆回收价差大吗？", a: "差距较大。铜芯按净铜重量 × 当日铜价 × 回收系数结算，铝芯按净铝重量 × 当日铝价 × 回收系数结算。目前铜价约为铝价的 3–4 倍，且铜芯电缆外护套、钢带铠装等附件也会影响净含金属量，建议现场称重评估更准确。" },
+  { q: "铜芯电缆与铝芯电缆回收价差大吗？", a: "差距较大。铜芯和铝芯要分开评估，实际价格受芯材、重量、线径、护套、钢带铠装和现场清运条件影响。建议现场称重并核对材质后再确认最终报价。" },
   { q: "回收过程是否开具正规单据？", a: "会。我们提供正规回收交接单、过磅单、收据/发票（根据客户需求类型开具），资产处置流程合规，方便企业财务做账及内部审计留痕。大宗业务可签订正式合同。" },
   { q: "高压电缆（10kV / 35kV）也回收吗？", a: "回收。YJV22、YJLV22 等 10kV/35kV 交联聚乙烯高压电缆是我们的主要回收品类之一。由于截面大、铜含量高，回收单价相对较好，工程剩余、改造拆除的新旧高压电缆都可处理。" },
   { q: "工厂整体拆除，除了电缆变压器还能处理什么？", a: "整厂拆除业务中，我们可一并处理配电柜/开关柜、母线槽、电机、水泵、控制柜、UPS 等电气设备，以及部分金属结构件。可打包评估报价，一站式完成场地腾退。" },
-  { q: "如何防止被低价收购？", a: "建议：1) 同时咨询 2–3 家回收方对比报价；2) 要求对方说明计价公式（铜/铝价 × 系数）；3) 过磅时到场监督；4) 查看对方是否具备再生资源经营资质。我们报价公式完全透明，欢迎对比。" },
+  { q: "如何防止被低价收购？", a: "建议：1) 同时咨询 2–3 家回收方对比报价；2) 要求对方说明材质、重量、行情和清运成本等报价依据；3) 过磅时到场监督；4) 查看对方是否具备再生资源经营资质。我们支持现场核对，欢迎对比。" },
 ];
 
-/* 能力承诺带（4 项可验证的"方法"，而非编造的"历史数字"）
- * 真实性原则：只展示可由客户当场验证的承诺，不写无法核实的累计量、客户数、年限。 */
+/* 能力承诺带 */
 const trustStats = [
   {
-    head: "计价",
-    sub: "公式公开",
-    label: "现场写出 铜价 × 系数 计算依据",
+    head: "报价",
+    sub: "依据清楚",
+    label: "材质 重量 行情 清运条件 逐项说明",
   },
   {
     head: "过磅",
@@ -145,37 +144,35 @@ const trustStats = [
   },
 ];
 
-/* 计价方法指南（不展示具体 RMB 区间——铜铝价天天波动，写死的数字一定假；
- * 改为公开计算公式，让客户用当日长江有色金属网现价自己算） */
+/* 报价评估指南：只展示影响报价的真实因素，不展示无法统一背书的固定系数。 */
 const priceGuide = [
   {
     cat: "废旧电缆",
     items: [
-      { name: "铜芯电力电缆 YJV",     spec: "3×95+1×50 及以上",   formula: "净铜重量 × 当日长江铜现价 × 0.85–0.92", note: "系数受铜芯纯度、外护套钢带剥离难度影响" },
-      { name: "铝芯电力电缆 YJLV",    spec: "3×120+1×70 及以上",  formula: "净铝重量 × 当日长江铝现价 × 0.85–0.90", note: "铜价目前约为铝价 3–4 倍，请按实际芯材计算" },
-      { name: "高压交联电缆 YJV22",   spec: "10kV / 35kV",          formula: "净铜重量 × 当日长江铜现价 × 0.88–0.93", note: "截面大、铜含量高，剥离效率高，系数略优" },
-      { name: "控制电缆 KVV",         spec: "多芯控制线",            formula: "净铜重量 × 当日长江铜现价 × 0.78–0.85", note: "外护套、屏蔽层、钢带需剔除后按净铜结算" },
+      { name: "铜芯电力电缆 YJV",     spec: "常见电力线缆",   formula: "看净铜重量、线径规格、护套/钢带情况、拆解难度", note: "现场确认材质和重量后，结合当日铜价给出报价" },
+      { name: "铝芯电力电缆 YJLV",    spec: "铝芯电缆",        formula: "看净铝重量、线缆规格、成色、装车与运输距离", note: "铜芯与铝芯价格差异较大，需按实际芯材分别评估" },
+      { name: "高压交联电缆 YJV22",   spec: "10kV / 35kV",     formula: "看电压等级、截面、米数、是否带铠装及现场条件", note: "大截面电缆需核对铭牌、截面和实际重量后报价" },
+      { name: "控制电缆 KVV",         spec: "多芯控制线",      formula: "看铜芯数量、外护套、屏蔽层、钢带和分拣难度", note: "小线径、多芯线缆需按实际含铜情况评估" },
     ],
   },
   {
     cat: "二手变压器",
     items: [
-      { name: "油浸式变压器 S11/S13",    spec: "315–2500kVA",                  formula: "评估维度：品牌 + 容量 + 出厂年份 + 外观 + 历史检测", note: "一线品牌（特变 / 正泰 / ABB 等）+ 5 年内出厂溢价明显" },
-      { name: "干式变压器 SCB10/SCB13",  spec: "400–2000kVA",                  formula: "评估维度：品牌 + 容量 + 绕组完整度 + 铭牌清晰 + 出厂年份", note: "10 年内出厂、铭牌完整者按市场价上限折算" },
-      { name: "箱式变电站",              spec: "户外整套（YB / ZGS）",          formula: "整体或拆分（变压器 + 高低压柜 + 箱体）按件评估", note: "现场看货后给出整套或拆分两种报价" },
-      { name: "开关柜 / 配电柜",         spec: "GGD / GCK / KYN28 / MNS",      formula: "型号 × 数量 × 铜排截面 × 断路器品牌（施耐德 / ABB / 正泰）", note: "高压柜（KYN28）单价远高于低压柜（GGD）" },
+      { name: "油浸式变压器 S11/S13",    spec: "315–2500kVA",                  formula: "看品牌、容量、出厂年份、外观、油箱状态和检测资料", note: "铭牌清晰、运行记录完整的设备更容易给出明确报价" },
+      { name: "干式变压器 SCB10/SCB13",  spec: "400–2000kVA",                  formula: "看品牌、容量、绕组完整度、绝缘状态、外观与出厂年份", note: "能提供铭牌和实拍图，可先给出初步收购意向" },
+      { name: "箱式变电站",              spec: "户外整套（YB / ZGS）",          formula: "看变压器、高低压柜、箱体完整度和是否需要拆分处置", note: "现场看货后可给出整套或拆分两种处理方案" },
+      { name: "开关柜 / 配电柜",         spec: "GGD / GCK / KYN28 / MNS",      formula: "看型号、数量、铜排截面、断路器品牌和柜体完整度", note: "高压柜、低压柜、控制柜按实际配置分别评估" },
     ],
   },
 ];
 
-/* 行业服务说明（替代"客户评价"——客户案例需授权，无授权前不展示具体证言；
- * 改为按"服务对象类型 × 典型场景 × 我们的处置方式"展开，全部为可执行的方法描述） */
+/* 行业服务说明：按服务对象类型展示可执行流程。 */
 const serviceSegments = [
   {
     industry: "制造业 · 整厂搬迁与产线升级",
     typical: "电子 / 光伏 / 精密机械 / 新能源汽车工厂",
     scope: "干式变压器、母线槽、开关柜、高低压电缆整批处置",
-    method: "现场清点 → 铭牌登记 → 公式估价 → 分类清运 → 过磅结算 → 票据交付。提供完整资产处置档案，便于企业财务与审计留痕。",
+    method: "现场清点 → 铭牌登记 → 分类评估 → 分类清运 → 过磅结算 → 票据交付。提供资产处置档案，便于企业财务与审计留痕。",
   },
   {
     industry: "物业 / 园区 · 配电房改造",
@@ -187,7 +184,7 @@ const serviceSegments = [
     industry: "电气工程 / 工地余料",
     typical: "电气施工方、安装公司、电缆经销库存",
     scope: "工地剩余 YJV / KVV / 工地剪头线、库存积压电缆",
-    method: "微信发铭牌图与卷数即可初步估价；批量上门提货，按净铜 / 净铝重量 × 当日金属现价 × 系数现场结算。",
+    method: "微信发铭牌图与卷数即可初步评估；批量上门提货，现场核对规格、重量与装车条件后结算。",
   },
 ];
 
@@ -334,7 +331,7 @@ export default function App() {
               </h1>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-                新兴电力设备承接长三角及安徽地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">计价公式公开 · 现场过磅结算 · 提供正规票据</strong>。
+                新兴电力设备承接长三角及安徽地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">报价依据清楚 · 现场过磅结算 · 提供正规票据</strong>。
               </p>
 
               {/* 信任小徽章 */}
@@ -417,9 +414,6 @@ export default function App() {
                 </div>
               ))}
             </div>
-            <p className="mt-3 text-center text-[11px] text-zinc-600">
-              本站不展示无法核实的累计回收量与客户数；以上 4 项均可在咨询、上门、结算各环节当场验证。
-            </p>
           </div>
         </section>
 
@@ -463,18 +457,19 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── 价格指南（SEO长尾） ── */}
+        {/* ── 报价指南（SEO长尾） ── */}
         <section id="price" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
           <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
             <div className="mb-12 grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-end">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Price Method</p>
-                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">公开计价方式</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Quote Factors</p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">报价看哪些因素</h2>
               </div>
               <p className="text-sm leading-7 text-zinc-400">
-                我们<strong className="text-zinc-200">不写"今日多少钱一吨"</strong>——铜铝现货每天波动 1–3%，写死的数字第二天就过期。下表公开<strong className="text-zinc-200">每个品类的计算公式</strong>，您查当日铜价（如 <a href="https://www.ccmn.cn/" target="_blank" rel="noopener" className="text-amber-300 underline-offset-2 hover:underline">长江有色金属网</a> / 上海期货）即可自行核算。
+                电缆和设备回收没有统一固定单价，主要看材质、规格、重量、成色、拆卸清运难度和当日行情。
+                下方列出常见品类的评估重点，方便您提前判断需要准备哪些信息。
                 <br className="hidden md:block"/>
-                <strong className="text-zinc-200">建议：</strong>拍照发微信 <span className="text-amber-300">{WECHAT}</span>，结合您的具体规格、数量与位置，给出含运输成本的针对性报价。
+                拍照发微信 <span className="text-amber-300">{WECHAT}</span>，结合具体规格、数量与位置，可先给出初步报价范围。
               </p>
             </div>
 
@@ -493,8 +488,8 @@ export default function App() {
                           <span className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[10px] text-zinc-400">{it.spec}</span>
                         </div>
                         <div className="mt-2.5 rounded-md border border-amber-400/15 bg-amber-400/[0.04] px-3 py-2">
-                          <div className="text-[10px] font-semibold uppercase tracking-wider text-amber-400/70">计价方式</div>
-                          <div className="mt-0.5 font-mono text-[12.5px] leading-5 text-amber-200">{it.formula}</div>
+                          <div className="text-[10px] font-semibold uppercase tracking-wider text-amber-400/70">评估重点</div>
+                          <div className="mt-0.5 text-[12.5px] leading-5 text-amber-200">{it.formula}</div>
                         </div>
                         <div className="mt-2 text-xs leading-6 text-zinc-500">{it.note}</div>
                       </div>
@@ -672,14 +667,14 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── 行业服务说明（替代客户评价；客户案例需授权，无授权前不展示具体证言） ── */}
+        {/* ── 行业服务说明 ── */}
         <section id="testimonials" className="scroll-mt-28 border-y border-white/[0.06] bg-white/[0.015]">
           <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
             <div className="mb-12">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Service Patterns</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">不同行业的服务方式</h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-400">
-                我们不展示无授权的客户证言，但下面列出三类典型服务对象与对应处置流程——可直接判断我们是否覆盖您的场景。
+                按常见服务对象整理三类场景，方便您快速判断我们是否覆盖您的项目。
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
@@ -707,9 +702,6 @@ export default function App() {
                 </article>
               ))}
             </div>
-            <p className="mt-6 text-center text-[11px] text-zinc-600">
-              真实客户案例待授权后展示——大宗合作可经客户书面授权后出示完整档案（合同、过磅单、现场照片、运输联单）。
-            </p>
           </div>
         </section>
 
@@ -825,7 +817,7 @@ export default function App() {
                     </div>
                     <div className="flex-1">
                       <div className="text-xs text-zinc-500">公司地址</div>
-                      <div className="mt-0.5 text-sm font-semibold text-zinc-200">安徽省合肥市 XX 区 XX 路 XX 号 · 新兴电力设备回收堆场</div>
+                      <div className="mt-0.5 text-sm font-semibold text-zinc-200">上海市嘉定区鹤望路365弄</div>
                       <div className="mt-2 text-[11px] leading-5 text-zinc-500">
                         长三角及安徽全境上门看货，欢迎实地考察堆场与过磅设备
                       </div>
@@ -955,20 +947,12 @@ export default function App() {
                 <li>电话：{PHONE}</li>
                 <li>微信：{WECHAT}</li>
                 <li>服务时段：08:00 – 20:00</li>
-                <li className="pt-2 border-t border-white/[0.04] mt-2">地址：安徽省合肥市 XX 区 XX 路 XX 号</li>
+                <li className="pt-2 border-t border-white/[0.04] mt-2">地址：上海市嘉定区鹤望路365弄</li>
               </ul>
             </div>
           </div>
-          {/* 真实性声明 */}
-          <div className="mt-10 rounded-xl border border-white/[0.05] bg-white/[0.015] p-4 text-[11px] leading-6 text-zinc-500">
-            <strong className="text-zinc-300">关于本站数据真实性：</strong>
-            本站<strong className="text-zinc-400">不展示</strong>无法核实的累计回收量 / 客户家数 / 行业经验年数等数字；价格表为<strong className="text-zinc-400">公开计算公式</strong>而非"今日报价"，请按当日长江有色金属网现价自行核算。客户案例需经客户书面授权后展示，未授权前以"行业服务方式"代替。微信二维码以实际上传为准。
-          </div>
           <div className="mt-6 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
             <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器回收</div>
-            <div>
-              <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener" className="hover:text-zinc-500">皖ICP备XXXXXXXX号</a>
-            </div>
           </div>
         </div>
       </footer>

@@ -3,7 +3,7 @@
  *
  * 用法：
  *   1. 复制 site.config.example.json 为 site.config.json
- *   2. 填入真实值（电话 / 微信 / ICP / 公安备案 / 百度统计 ID / GA4 ID）
+ *   2. 填入真实值（电话 / 微信；统计 ID 可选）
  *   3. 运行：npm run apply:config
  *   4. 脚本会批量替换 src/App.jsx、index.html、scripts/gen-city-pages.mjs
  *   5. 最后会自动触发 npm run gen:cities 重生城市/业务页
@@ -32,8 +32,13 @@ if (!existsSync(CONFIG_PATH)) {
 }
 
 const cfg = JSON.parse(readFileSync(CONFIG_PATH, "utf8"));
-const required = ["phone", "wechat", "icpBeian", "baiduTongjiId", "ga4Id"];
-const missing = required.filter(k => !cfg[k] || String(cfg[k]).includes("XXXX") || String(cfg[k]).includes("填"));
+const isFilled = (value) =>
+  Boolean(value) &&
+  !String(value).includes("XXXX") &&
+  !String(value).includes("填") &&
+  String(value).trim() !== "";
+const required = ["phone", "wechat"];
+const missing = required.filter(k => !isFilled(cfg[k]));
 if (missing.length) {
   console.error("\n❌ 以下字段未填或仍是占位符：", missing.join(", "));
   console.error("   请编辑 site.config.json 后再运行。\n");
@@ -64,16 +69,32 @@ const RULES = [
   // 用否定先行断言 s（不跟 s 的 xinxingdianli 才替换）
   { files: ["src/App.jsx","scripts/gen-city-pages.mjs"],
     find: /xinxingdianli(?!s)/g, replace: cfg.wechat, label: "微信号" },
-  // ICP 备案
-  { files: ["src/App.jsx","scripts/gen-city-pages.mjs"],
-    find: /皖ICP备XXXXXXXX号/g, replace: cfg.icpBeian, label: "ICP 备案号" },
-  // 百度统计 ID
-  { files: ["index.html"],
-    find: /BAIDU_HM_ID/g, replace: cfg.baiduTongjiId, label: "百度统计 hm.js ID" },
-  // GA4 ID（出现 2 次：src 和 config）
-  { files: ["index.html"],
-    find: /G-XXXXXXXXXX/g, replace: cfg.ga4Id, label: "Google Analytics 4 ID" },
 ];
+
+if (isFilled(cfg.icpBeian)) {
+  RULES.push({
+    files: ["src/App.jsx", "scripts/gen-city-pages.mjs"],
+    find: /皖ICP备XXXXXXXX号/g,
+    replace: cfg.icpBeian,
+    label: "ICP 备案号",
+  });
+}
+if (isFilled(cfg.baiduTongjiId)) {
+  RULES.push({
+    files: ["index.html"],
+    find: /BAIDU_HM_ID/g,
+    replace: cfg.baiduTongjiId,
+    label: "百度统计 hm.js ID",
+  });
+}
+if (isFilled(cfg.ga4Id)) {
+  RULES.push({
+    files: ["index.html"],
+    find: /G-XXXXXXXXXX/g,
+    replace: cfg.ga4Id,
+    label: "Google Analytics 4 ID",
+  });
+}
 
 /* ── 执行 ─────────────────────────────────────── */
 let totalHits = 0, totalMiss = 0;

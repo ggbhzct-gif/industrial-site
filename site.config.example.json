@@ -1,10 +1,10 @@
 {
   "_comment": "复制此文件为 site.config.json，填入真实值后运行 npm run apply:config",
   "_comment2": "phone 只填数字（不含横线），脚本会自动生成 138-0000-0000 和 tel:13800000000 两种格式",
+  "_comment3": "baiduTongjiId / ga4Id 可先留空；没有备案前不要填写或展示 ICP",
 
   "phone": "13800000000",
   "wechat": "xinxingdianli",
-  "icpBeian": "皖ICP备12345678号",
-  "baiduTongjiId": "abc123def456...",
-  "ga4Id": "G-XXXXXXXXXX"
+  "baiduTongjiId": "",
+  "ga4Id": ""
 }
