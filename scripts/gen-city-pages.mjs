@@ -275,6 +275,118 @@ const SERVICES_HUB = [
   },
 ];
 
+/* ═══ SEO 指南页：承接百度长尾搜索，避免只靠首页与城市页抢词 ═══ */
+const GUIDE_PAGES = [
+  {
+    slug: "guides/cable-recycling-price",
+    title: "废旧电缆回收价格怎么算_铜芯铝芯电缆报价看哪些因素 | 新兴电力设备",
+    h1: "废旧电缆回收价格怎么算",
+    desc: "废旧电缆回收价格不能只按一米多少钱判断，主要看铜芯或铝芯材质、线径规格、实际重量、护套铠装、拆解难度和当日金属行情。",
+    kw: ["废旧电缆回收价格","电缆回收多少钱一米","铜芯电缆回收价格","铝芯电缆回收价格","高压电缆回收报价"],
+    service: "废旧电缆回收",
+    serviceUrl: "/cable-recycling/",
+    sections: [
+      {
+        h2: "为什么不能只问一米多少钱",
+        lead: "同样是电缆，铜芯和铝芯、低压和高压、带不带铠装，价格差异都很大。只看长度容易误判，现场评估通常要结合重量和材质。",
+        grid: [
+          ["芯材差异", "铜芯和铝芯要分开评估，芯材不同会直接影响回收价值。"],
+          ["线径规格", "截面越大、金属含量越高，通常越需要按实际重量核对。"],
+          ["护套与铠装", "外护套、钢带、屏蔽层会影响净金属比例和拆解难度。"],
+          ["现场条件", "楼层、装车距离、是否需要拆除和吊装，都会影响最终报价。"],
+        ],
+      },
+      {
+        h2: "发图报价需要准备什么",
+        lead: "先发图能缩短沟通时间，也能避免电话里反复描述规格。",
+        grid: [
+          ["铭牌照片", "拍清型号、规格、电压等级、生产厂家等信息。"],
+          ["现场照片", "拍清电缆盘、散线、桥架或管廊内的实际状态。"],
+          ["数量估计", "提供大致米数、卷数或估重，便于判断是否需要整车上门。"],
+          ["位置说明", "告知城市、园区、楼层和装车条件，方便核算清运成本。"],
+        ],
+      },
+    ],
+    faq: [
+      { q: "废旧电缆是按米收还是按斤收？", a: "多数回收场景按重量和材质评估，而不是简单按米。长度只能辅助估算，最终仍建议现场称重确认。" },
+      { q: "高压电缆和普通电缆报价一样吗？", a: "不一样。高压交联电缆通常要看电压等级、截面、铠装结构和实际重量，不能套用普通低压电缆报价。" },
+      { q: "只有少量工地余料能上门吗？", a: "可以先发图确认数量和位置。量少可合并路线安排，量大可单独上门。" },
+    ],
+  },
+  {
+    slug: "guides/transformer-recycling-checklist",
+    title: "二手变压器回收估价需要哪些资料_铭牌容量品牌年份 | 新兴电力设备",
+    h1: "二手变压器回收估价需要哪些资料",
+    desc: "二手变压器回收估价主要看铭牌、容量、品牌、出厂年份、外观状态、绕组完整度和历史运行资料。提前准备照片可更快获得初步报价。",
+    kw: ["二手变压器回收估价","变压器回收需要什么资料","油浸式变压器回收","干式变压器回收","箱式变电站回收"],
+    service: "二手变压器回收",
+    serviceUrl: "/transformer-recycling/",
+    sections: [
+      {
+        h2: "必须拍清的 4 类信息",
+        lead: "变压器不是单纯按重量回收，设备能否再次流通、参数是否清晰，会明显影响评估结果。",
+        grid: [
+          ["铭牌", "型号、容量、电压等级、厂家、出厂日期要尽量拍清。"],
+          ["整体外观", "拍正面、侧面、油箱或外壳、散热片、接线端子等位置。"],
+          ["运行状态", "说明是否仍在运行、是否停用、是否有检测记录或维修记录。"],
+          ["配套设备", "高低压柜、母线槽、电缆、箱体等是否一起处置。"],
+        ],
+      },
+      {
+        h2: "哪些情况需要现场看货",
+        lead: "如果容量较大、数量较多或涉及整套配电房，建议直接预约现场评估。",
+        grid: [
+          ["铭牌缺失", "需要通过外观、尺寸、现场资料和配套设备综合判断。"],
+          ["整套箱变", "可评估整套出售、拆分回收或打包清场三种方式。"],
+          ["设备较新", "需判断能否作为二手设备流通，避免只按废料处理。"],
+          ["企业资产处置", "可提供交接单、过磅单、收据或发票，便于财务留档。"],
+        ],
+      },
+    ],
+    faq: [
+      { q: "没有铭牌的变压器还能回收吗？", a: "可以，但估价会更依赖现场看货和辅助资料。建议拍清外观、尺寸、接线端、容量线索和配套设备。" },
+      { q: "油浸式和干式变压器都收吗？", a: "都可以评估。油浸式重点看容量、年份、油箱状态；干式重点看绕组完整度、绝缘状态和外观。" },
+      { q: "可以回收后再购买二手变压器吗？", a: "可以。旧设备处置和二手设备采购可以一起对接，方便工厂改造或扩容。" },
+    ],
+  },
+  {
+    slug: "guides/factory-demolition-process",
+    title: "工厂配电房拆除设备处理流程_清点断电过磅结算 | 新兴电力设备",
+    h1: "工厂配电房拆除设备处理流程",
+    desc: "工厂搬迁、配电房改造或车间清退时，电缆、变压器、开关柜、母线槽等设备可打包评估处理，流程包括清点、断电确认、拆除、装车、过磅和结算。",
+    kw: ["工厂拆除设备处理","配电房拆除回收","工厂搬迁设备回收","开关柜回收","母线槽回收"],
+    service: "工厂拆除设备处理",
+    serviceUrl: "/factory-demolition/",
+    sections: [
+      {
+        h2: "标准处理流程",
+        lead: "大宗设备处置最重要的是范围清楚、现场安全、过磅透明和单据完整。",
+        grid: [
+          ["现场清点", "登记变压器、开关柜、配电柜、电缆、母线槽和电机水泵等设备。"],
+          ["断电确认", "拆除前确认停电、验电、接地和现场安全边界。"],
+          ["分类拆除", "按设备、线缆、铜铝金属和可流通部件分类处理。"],
+          ["过磅结算", "装车前后核对重量和清单，企业可安排人员现场监督。"],
+        ],
+      },
+      {
+        h2: "企业需要提前确认的事项",
+        lead: "提前准备现场资料，能缩短排期和报价时间。",
+        grid: [
+          ["处置范围", "明确哪些设备归回收方处理，哪些设备需保留。"],
+          ["施工条件", "确认车辆进出、叉车吊装、楼层、电梯和装车距离。"],
+          ["单据要求", "提前说明是否需要合同、过磅单、收据、发票或资产处置档案。"],
+          ["时间窗口", "工厂不停产或园区限时施工时，要提前确定进场时间。"],
+        ],
+      },
+    ],
+    faq: [
+      { q: "配电房整套设备可以一次处理吗？", a: "可以。变压器、开关柜、配电柜、母线槽、电缆线路可打包评估，按现场范围制定清运方案。" },
+      { q: "拆除施工是否需要企业配合？", a: "需要确认停电、现场通行、设备归属和安全边界，具体拆除与清运由作业人员执行。" },
+      { q: "能提供资产处置留档吗？", a: "可以根据企业要求提供交接清单、过磅单、现场照片、收据或发票等资料。" },
+    ],
+  },
+];
+
 /* ═══ 通用 FAQ（3 条）+ 城市特有 FAQ（3 条）═══ */
 const commonFaqs = [
   { q: "废旧电缆回收价格怎么算？",       a: "按材质、规格、重量、成色、拆卸清运难度和当日金属行情综合评估。铜芯与铝芯价格差异较大，建议拍照发微信，10 分钟内给出初步价格区间。" },
@@ -380,6 +492,10 @@ const footerHtml = () => `
 <footer><div class="wrap">
   <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器专业回收</div>
   <div>电话：${PHONE} · 微信：${WECHAT}</div>
+  <div style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;color:#71717a;font-size:11px">
+    <span>回收指南：</span>
+    ${GUIDE_PAGES.map(g => `<a href="/${g.slug}/">${g.h1}</a>`).join("")}
+  </div>
 </div></footer>`;
 
 /* ═══ 城市页渲染 ═══ */
@@ -655,6 +771,130 @@ ${footerHtml()}
 </html>`;
 }
 
+/* ═══ SEO 指南页渲染 ═══ */
+function renderGuide(g) {
+  const canonical = `${SITE}/${g.slug}/`;
+  const ldArticle = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: g.h1,
+    description: g.desc,
+    author: { "@type": "Organization", name: "新兴电力设备" },
+    publisher: { "@type": "Organization", name: "新兴电力设备" },
+    mainEntityOfPage: canonical,
+  };
+  const ldBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "首页", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "回收指南", item: `${SITE}/guides/` },
+      { "@type": "ListItem", position: 3, name: g.h1, item: canonical },
+    ],
+  };
+  const ldFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: g.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  };
+  const relatedGuides = GUIDE_PAGES.filter(x => x.slug !== g.slug);
+
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>${g.title}</title>
+<meta name="description" content="${g.desc}"/>
+<meta name="keywords" content="${g.kw.join(",")}"/>
+<link rel="canonical" href="${canonical}"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="${canonical}"/>
+<meta property="og:title" content="${g.title}"/>
+<meta property="og:description" content="${g.desc}"/>
+<meta property="og:image" content="${SITE}/og-cover.jpg"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:site_name" content="新兴电力设备"/>
+<script type="application/ld+json">${JSON.stringify(ldArticle)}</script>
+<script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
+<script type="application/ld+json">${JSON.stringify(ldFaq)}</script>
+<style>${css}</style>
+</head>
+<body>
+${headerHtml("")}
+
+<main>
+  <section class="hero"><div class="wrap">
+    <nav aria-label="面包屑" style="font-size:12px;color:#71717a;margin-bottom:8px">
+      <a href="/">首页</a> <span style="color:#3f3f46">›</span> <a href="/${g.serviceUrl.replace(/^\//,"")}">${g.service}</a> <span style="color:#3f3f46">›</span> <span style="color:#d4d4d8">${g.h1}</span>
+    </nav>
+    <span class="chip chip-amber">● 回收指南 · ${g.service}</span>
+    <h1>${g.h1}</h1>
+    <p>${g.desc}</p>
+    <div class="ctas" style="margin-top:24px">
+      <a href="${PHONE_TEL}" class="btn btn-primary">📞 立即免费报价 · ${PHONE}</a>
+      <a href="${g.serviceUrl}" class="btn btn-ghost">查看${g.service}服务 →</a>
+    </div>
+  </div></section>
+
+  ${g.sections.map(sec => `
+  <section><div class="wrap">
+    <div class="kicker">Guide</div>
+    <h2>${sec.h2}</h2>
+    <p class="lead">${sec.lead}</p>
+    <div class="grid grid-2">
+      ${sec.grid.map(([t,d],i)=>`
+        <article class="card">
+          <div style="font-size:44px;font-weight:900;color:rgba(255,255,255,.06);line-height:1;margin-bottom:-16px">${String(i+1).padStart(2,"0")}</div>
+          <h3>${t}</h3>
+          <p>${d}</p>
+        </article>`).join("")}
+    </div>
+  </div></section>`).join("")}
+
+  <section id="regions"><div class="wrap">
+    <div class="kicker">Coverage</div>
+    <h2>服务城市</h2>
+    <p class="lead">长三角及安徽主要城市均可上门评估。点击城市查看本地服务范围与案例参考。</p>
+    <div class="grid grid-4">
+      ${CITIES.map(c => `<a class="area-tag" href="/${c.slug}/">${c.name}${g.service}</a>`).join("")}
+    </div>
+  </div></section>
+
+  <section id="faq"><div class="wrap">
+    <div class="kicker">FAQ</div>
+    <h2>${g.h1}常见问题</h2>
+    ${g.faq.map(f=>`
+      <div class="faq">
+        <h3>${f.q}</h3>
+        <p>${f.a}</p>
+      </div>`).join("")}
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="contact-box">
+      <div class="kicker">Contact</div>
+      <h2>需要上门评估？</h2>
+      <p style="color:#a1a1aa;font-size:14px;margin:0">发送铭牌、现场图、数量和位置到微信 <strong style="color:#fcd34d">${WECHAT}</strong>，先判断是否适合上门。</p>
+      <a href="${PHONE_TEL}" class="phone-big">📞 ${PHONE}</a>
+      <div style="color:#71717a;font-size:12px">服务时段：每日 08:00–20:00 · 急单可协商</div>
+    </div>
+    <div class="kicker" style="margin-top:40px">Related Guides</div>
+    <h2 style="font-size:18px">相关回收指南</h2>
+    <div class="cross-links">
+      ${relatedGuides.map(x=>`<a href="/${x.slug}/"><b>▸ ${x.h1} →</b><span>${x.desc.slice(0,58)}…</span></a>`).join("")}
+    </div>
+  </div></section>
+</main>
+
+${mobileCtaHtml}
+${footerHtml()}
+</body>
+</html>`;
+}
+
 /* ═══ sitemap ═══ */
 function renderSitemap() {
   const today = new Date().toISOString().slice(0,10);
@@ -662,6 +902,7 @@ function renderSitemap() {
     { loc:`${SITE}/`, pri:"1.0", freq:"weekly" },
     ...SERVICES_HUB.map(s => ({ loc:`${SITE}/${s.slug}/`, pri:"0.9", freq:"monthly" })),
     ...CITIES.map(c => ({ loc:`${SITE}/${c.slug}/`, pri:"0.8", freq:"monthly" })),
+    ...GUIDE_PAGES.map(g => ({ loc:`${SITE}/${g.slug}/`, pri:"0.7", freq:"monthly" })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -676,7 +917,7 @@ ${urls.map(u=>`  <url>
 }
 
 /* ═══ 执行 ═══ */
-let cityCount = 0, svcCount = 0;
+let cityCount = 0, svcCount = 0, guideCount = 0;
 for (const c of CITIES) {
   const outDir  = resolve(ROOT, "public", c.slug);
   mkdirSync(outDir, { recursive: true });
@@ -691,7 +932,14 @@ for (const s of SERVICES_HUB) {
   console.log(`✓ public/${s.slug}/index.html`);
   svcCount++;
 }
+for (const g of GUIDE_PAGES) {
+  const outDir = resolve(ROOT, "public", g.slug);
+  mkdirSync(outDir, { recursive: true });
+  writeFileSync(resolve(outDir, "index.html"), renderGuide(g), "utf8");
+  console.log(`✓ public/${g.slug}/index.html`);
+  guideCount++;
+}
 writeFileSync(resolve(ROOT, "public", "sitemap.xml"), renderSitemap(), "utf8");
-const total = 1 + svcCount + cityCount;
+const total = 1 + svcCount + cityCount + guideCount;
 console.log(`✓ public/sitemap.xml (${total} URLs)`);
-console.log(`\n生成完成：${cityCount} 个城市页 + ${svcCount} 个业务中枢页 + 1 个 sitemap`);
+console.log(`\n生成完成：${cityCount} 个城市页 + ${svcCount} 个业务中枢页 + ${guideCount} 个指南页 + 1 个 sitemap`);

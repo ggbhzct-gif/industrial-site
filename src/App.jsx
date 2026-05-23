@@ -912,7 +912,7 @@ export default function App() {
       {/* ── 页脚 ── */}
       <footer ref={footerRef} className="border-t border-white/[0.06] bg-zinc-950">
         <div className="mx-auto max-w-7xl px-5 py-12 lg:px-8">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             <div>
               <div className="text-sm font-semibold text-zinc-200">新兴电力设备</div>
               <p className="mt-3 text-xs leading-6 text-zinc-500">长三角及安徽专业废旧电缆回收与二手变压器回收出售服务商</p>
@@ -925,6 +925,18 @@ export default function App() {
                   ["二手变压器回收","/transformer-recycling/"],
                   ["二手变压器出售","/transformer-recycling/"],
                   ["工厂拆除设备处理","/factory-demolition/"],
+                ].map(([t,h]) => (
+                  <li key={t}><a href={h} className="transition hover:text-amber-300">{t}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">回收指南</div>
+              <ul className="space-y-2 text-xs leading-6 text-zinc-500">
+                {[
+                  ["电缆价格怎么算","/guides/cable-recycling-price/"],
+                  ["变压器估价资料","/guides/transformer-recycling-checklist/"],
+                  ["配电房拆除流程","/guides/factory-demolition-process/"],
                 ].map(([t,h]) => (
                   <li key={t}><a href={h} className="transition hover:text-amber-300">{t}</a></li>
                 ))}
