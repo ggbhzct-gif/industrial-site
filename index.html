@@ -44,6 +44,20 @@
     <!-- ===== 预加载首屏 Hero 图（优化 LCP） ===== -->
     <link rel="preload" as="image" href="/image/新兴电力回收-铜芯电缆盘矩阵.webp" fetchpriority="high" />
 
+    <!-- ===== 百度统计：填入真实 hm.js ID 后自动启用 ===== -->
+    <script>
+      (function () {
+        var hmId = "BAIDU_HM_ID";
+        if (!hmId || hmId === "BAIDU_HM_ID") return;
+        window._hmt = window._hmt || [];
+        var hm = document.createElement("script");
+        hm.async = true;
+        hm.src = "https://hm.baidu.com/hm.js?" + hmId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
     <!-- ===== JSON-LD：LocalBusiness ===== -->
     <script type="application/ld+json">
     {
