@@ -592,7 +592,7 @@ ${headerHtml(c.slug)}
     <p class="lead">覆盖电气设备全生命周期处置与流通——点击查看完整业务说明与报价评估重点。</p>
     <div class="cross-links">
       <a href="/cable-recycling/"><b>▸ ${c.name}废旧电缆回收 →</b><span>铜芯 / 铝芯 / 高压电缆，按材质、规格、重量和现场条件评估</span></a>
-      <a href="/transformer-recycling/"><b>▸ ${c.name}二手变压器回收出售 →</b><span>S9/S11/S13 油浸、SCB10/SCB13 干式、箱式变压器评估与流通</span></a>
+      <a href="/${c.slug}/transformer-recycling/"><b>▸ ${c.name}二手变压器回收出售 →</b><span>S9/S11/S13 油浸、SCB10/SCB13 干式、箱式变压器评估与流通</span></a>
       <a href="/factory-demolition/"><b>▸ ${c.name}工厂拆除设备处理 →</b><span>整厂搬迁、配电房拆改、车间清退一站式腾退</span></a>
     </div>
   </div></section>
@@ -735,7 +735,10 @@ ${headerHtml(s.slug)}
     <h2>${s.name}——覆盖城市</h2>
     <p class="lead">点击进入对应城市页面，查看本地服务区域、案例与联系方式。</p>
     <div class="grid grid-4">
-      ${CITIES.map(c => `<a class="area-tag" href="/${c.slug}/">${c.name}${s.name.replace("与出售","")}</a>`).join("")}
+      ${CITIES.map(c => {
+        const href = s.slug === "transformer-recycling" ? `/${c.slug}/transformer-recycling/` : `/${c.slug}/`;
+        return `<a class="area-tag" href="${href}">${c.name}${s.name.replace("与出售","")}</a>`;
+      }).join("")}
     </div>
   </div></section>
 
@@ -761,6 +764,165 @@ ${headerHtml(s.slug)}
     <h2 style="font-size:18px">其他业务</h2>
     <div class="cross-links">
       ${otherServices.map(x=>`<a href="/${x.slug}/"><b>▸ ${x.name} →</b><span>${x.desc.slice(0,52)}…</span></a>`).join("")}
+    </div>
+  </div></section>
+</main>
+
+${mobileCtaHtml}
+${footerHtml()}
+</body>
+</html>`;
+}
+
+/* ═══ 城市 × 二手变压器长尾页 ═══ */
+function renderCityTransformer(c) {
+  const canonical = `${SITE}/${c.slug}/transformer-recycling/`;
+  const title = `${c.name}二手变压器回收_油浸式干式箱变回收出售_上门估价 | 新兴电力设备`;
+  const desc = `${c.name}二手变压器回收与出售服务，覆盖${c.areas.slice(0,4).join("、")}等区域，回收 S9/S11/S13 油浸式变压器、SCB10/SCB13 干式变压器、箱式变电站和配套开关柜。`;
+  const kw = [
+    `${c.name}二手变压器回收`,
+    `${c.name}变压器回收`,
+    `${c.name}油浸式变压器回收`,
+    `${c.name}干式变压器回收`,
+    `${c.name}箱式变电站回收`,
+    `${c.name}二手变压器出售`,
+    `${c.name}配电柜回收`,
+  ].join(",");
+  const ldService = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `${c.name}二手变压器回收`,
+    serviceType: "二手变压器回收与出售",
+    provider: { "@type": "LocalBusiness", name: "新兴电力设备", telephone: PHONE, url: SITE },
+    areaServed: [{ "@type": "City", name: c.name }],
+    description: desc,
+    url: canonical,
+  };
+  const ldBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "首页", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: c.name, item: `${SITE}/${c.slug}/` },
+      { "@type": "ListItem", position: 3, name: `${c.name}二手变压器回收`, item: canonical },
+    ],
+  };
+  const localFaqs = [
+    { q: `${c.name}二手变压器回收需要提供哪些照片？`, a: `建议提供铭牌、整体外观、接线端、油箱或外壳、配套开关柜照片，并说明设备所在区域（如${c.areas.slice(0,3).join("、")}）和台数。` },
+    { q: `${c.name}哪些区域可以上门看变压器？`, a: `${c.name}${c.areas.join("、")}均可对接，${c.landmark ? `重点园区如${c.landmark}可优先安排。` : "核心区可优先安排。"}` },
+    { q: `${c.name}箱式变电站可以整套处理吗？`, a: `可以。箱式变电站可按整套或拆分（变压器、高低压柜、箱体、电缆）两种方式评估，现场看货后给出方案。` },
+  ];
+  const ldFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: localFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  };
+
+  const nearby = CITIES.filter(x => x.slug !== c.slug).slice(0, 8);
+
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>${title}</title>
+<meta name="description" content="${desc}"/>
+<meta name="keywords" content="${kw}"/>
+<link rel="canonical" href="${canonical}"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="${canonical}"/>
+<meta property="og:title" content="${title}"/>
+<meta property="og:description" content="${desc}"/>
+<meta property="og:image" content="${SITE}/og-cover.jpg"/>
+<meta property="og:locale" content="zh_CN"/>
+<meta property="og:site_name" content="新兴电力设备"/>
+<script type="application/ld+json">${JSON.stringify(ldService)}</script>
+<script type="application/ld+json">${JSON.stringify(ldBreadcrumb)}</script>
+<script type="application/ld+json">${JSON.stringify(ldFaq)}</script>
+<style>${css}</style>
+</head>
+<body>
+${headerHtml("transformer-recycling")}
+
+<main>
+  <section class="hero"><div class="wrap">
+    <nav aria-label="面包屑" style="font-size:12px;color:#71717a;margin-bottom:8px">
+      <a href="/">首页</a> <span style="color:#3f3f46">›</span> <a href="/${c.slug}/">${c.name}</a> <span style="color:#3f3f46">›</span> <span style="color:#d4d4d8">二手变压器回收</span>
+    </nav>
+    <span class="chip chip-amber">● ${c.name} · 二手变压器回收</span>
+    <h1>${c.name}<em>二手变压器回收</em><br/>油浸式 · 干式 · 箱式变电站</h1>
+    <p>${desc}${c.context}</p>
+    <div class="ctas" style="margin-top:24px">
+      <a href="${PHONE_TEL}" class="btn btn-primary">📞 ${c.name}变压器免费估价 · ${PHONE}</a>
+      <a href="#regions" class="btn btn-ghost">查看${c.name}服务区域 →</a>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Transformer Types</div>
+    <h2>${c.name}常见回收品类</h2>
+    <p class="lead">工厂搬迁、配电房改造、园区设备更新产生的旧变压器和配套设备，均可先发图评估。</p>
+    <div class="grid grid-2">
+      ${[
+        ["油浸式变压器", "S9/S11/S13 等 10kV 配电变压器，重点看容量、品牌、年份、油箱和运行状态。"],
+        ["干式变压器", "SCB10/SCB13/SCB14 等干式变压器，重点看绕组完整度、绝缘状态和铭牌清晰度。"],
+        ["箱式变电站", "YB/ZGS 户外箱变，可整套评估，也可拆分为变压器、高低压柜、箱体处理。"],
+        ["开关柜配电柜", "KYN28、GGD、GCK、MNS 等高低压柜可随变压器一起打包处置。"],
+      ].map(([t,d],i)=>`
+        <article class="card">
+          <div style="font-size:44px;font-weight:900;color:rgba(255,255,255,.06);line-height:1;margin-bottom:-16px">${String(i+1).padStart(2,"0")}</div>
+          <h3>${t}</h3>
+          <p>${d}</p>
+        </article>`).join("")}
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="kicker">Quote Checklist</div>
+    <h2>${c.name}变压器估价要看什么</h2>
+    <p class="lead">二手变压器不是只按废铁重量处理，设备能否二次流通、参数是否完整，会影响估价。</p>
+    <div class="grid grid-3">
+      ${[
+        ["铭牌参数", "型号、容量、电压等级、生产厂家、出厂日期。"],
+        ["设备状态", "外观、油箱或外壳、绕组、端子、风机温控和附件。"],
+        ["项目位置", `${c.name}具体区域、园区、楼层、装车距离和是否需要吊装。`],
+        ["配套清单", "高低压柜、母线槽、电缆、箱体是否一起处置。"],
+        ["单据要求", "是否需要合同、交接单、过磅单、收据或发票。"],
+        ["处置方式", "回收、出售、置换、整套清场可按现场需求组合。"],
+      ].map(([t,d])=>`<article class="card"><h3>${t}</h3><p>${d}</p></article>`).join("")}
+    </div>
+  </div></section>
+
+  <section id="regions"><div class="wrap">
+    <div class="kicker">Local Coverage</div>
+    <h2>${c.name}上门服务区域</h2>
+    <p class="lead">${c.landmark ? `重点覆盖 ${c.landmark} 等产业园区，` : ""}也可对接周边工厂、物业、安装公司和资产处置项目。</p>
+    <div class="grid grid-4">
+      ${c.areas.map(a=>`<span class="area-tag">${c.name} · ${a}变压器回收</span>`).join("")}
+    </div>
+  </div></section>
+
+  <section id="faq"><div class="wrap">
+    <div class="kicker">FAQ</div>
+    <h2>${c.name}二手变压器回收常见问题</h2>
+    ${localFaqs.map(f=>`<div class="faq"><h3>${f.q}</h3><p>${f.a}</p></div>`).join("")}
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="contact-box">
+      <div class="kicker">Contact</div>
+      <h2>${c.name}二手变压器回收免费评估</h2>
+      <p style="color:#a1a1aa;font-size:14px;margin:0">发送铭牌、外观、容量、台数和位置到微信 <strong style="color:#fcd34d">${WECHAT}</strong>，先判断回收或二次流通价值。</p>
+      <a href="${PHONE_TEL}" class="phone-big">📞 ${PHONE}</a>
+      <div style="color:#71717a;font-size:12px">服务时段：每日 08:00–20:00 · 急单可协商</div>
+    </div>
+    <div class="kicker" style="margin-top:40px">Nearby Cities</div>
+    <h2 style="font-size:18px">周边城市二手变压器回收</h2>
+    <div class="link-cloud">
+      ${nearby.map(x=>`<a href="/${x.slug}/transformer-recycling/">${x.name}二手变压器回收</a>`).join("")}
+      <a href="/transformer-recycling/">长三角二手变压器回收</a>
     </div>
   </div></section>
 </main>
@@ -902,6 +1064,7 @@ function renderSitemap() {
     { loc:`${SITE}/`, pri:"1.0", freq:"weekly" },
     ...SERVICES_HUB.map(s => ({ loc:`${SITE}/${s.slug}/`, pri:"0.9", freq:"monthly" })),
     ...CITIES.map(c => ({ loc:`${SITE}/${c.slug}/`, pri:"0.8", freq:"monthly" })),
+    ...CITIES.map(c => ({ loc:`${SITE}/${c.slug}/transformer-recycling/`, pri:"0.75", freq:"monthly" })),
     ...GUIDE_PAGES.map(g => ({ loc:`${SITE}/${g.slug}/`, pri:"0.7", freq:"monthly" })),
   ];
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -917,13 +1080,19 @@ ${urls.map(u=>`  <url>
 }
 
 /* ═══ 执行 ═══ */
-let cityCount = 0, svcCount = 0, guideCount = 0;
+let cityCount = 0, cityTransformerCount = 0, svcCount = 0, guideCount = 0;
 for (const c of CITIES) {
   const outDir  = resolve(ROOT, "public", c.slug);
   mkdirSync(outDir, { recursive: true });
   writeFileSync(resolve(outDir, "index.html"), renderCity(c), "utf8");
   console.log(`✓ public/${c.slug}/index.html`);
   cityCount++;
+
+  const transformerDir = resolve(ROOT, "public", c.slug, "transformer-recycling");
+  mkdirSync(transformerDir, { recursive: true });
+  writeFileSync(resolve(transformerDir, "index.html"), renderCityTransformer(c), "utf8");
+  console.log(`✓ public/${c.slug}/transformer-recycling/index.html`);
+  cityTransformerCount++;
 }
 for (const s of SERVICES_HUB) {
   const outDir = resolve(ROOT, "public", s.slug);
@@ -940,6 +1109,6 @@ for (const g of GUIDE_PAGES) {
   guideCount++;
 }
 writeFileSync(resolve(ROOT, "public", "sitemap.xml"), renderSitemap(), "utf8");
-const total = 1 + svcCount + cityCount + guideCount;
+const total = 1 + svcCount + cityCount + cityTransformerCount + guideCount;
 console.log(`✓ public/sitemap.xml (${total} URLs)`);
-console.log(`\n生成完成：${cityCount} 个城市页 + ${svcCount} 个业务中枢页 + ${guideCount} 个指南页 + 1 个 sitemap`);
+console.log(`\n生成完成：${cityCount} 个城市页 + ${cityTransformerCount} 个城市变压器页 + ${svcCount} 个业务中枢页 + ${guideCount} 个指南页 + 1 个 sitemap`);
