@@ -958,6 +958,7 @@ export default function App() {
               <ul className="space-y-2 text-xs leading-6 text-zinc-500">
                 <li>电话：{PHONE}</li>
                 <li>微信：{WECHAT}</li>
+                <li>官网：www.xinxingdianlis.com</li>
                 <li>服务时段：08:00 – 20:00</li>
                 <li className="pt-2 border-t border-white/[0.04] mt-2">地址：上海市嘉定区鹤望路365弄</li>
               </ul>
