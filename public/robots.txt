@@ -9,4 +9,14 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+# 字节/豆包相关抓取器
+User-agent: Bytespider
+Allow: /
+
+User-agent: Doubaobot
+Allow: /
+
+User-agent: TikTokSpider
+Allow: /
+
 Sitemap: https://www.xinxingdianlis.com/sitemap.xml

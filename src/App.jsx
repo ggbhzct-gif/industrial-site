@@ -41,11 +41,24 @@ const advantages = [
   { icon: "◎", title: "上门评估", desc: "全程免费上门，专业人员现场核查铭牌、型号与数量。" },
   { icon: "⚡", title: "当日响应", desc: "7×12h 咨询接待，确认信息后最快当日安排上门排期。" },
   { icon: "✓", title: "手续合规", desc: "提供正规交接单据与收据，资产处置流程合规，方便财务做账。" },
-  { icon: "🏙", title: "区域覆盖", desc: "长三角及安徽多城市均有服务网络，就近安排上门评估。" },
+  { icon: "🏙", title: "区域覆盖", desc: "以安徽为重点，长三角多城市均有服务网络，就近安排上门评估。" },
   { icon: "💬", title: "微信图片沟通", desc: "发送铭牌图与实景图，快速预判价值，省去往返成本。" },
 ];
 
 const regions = [
+  { name: "安徽",   slug: "anhui"     },
+  { name: "合肥",   slug: "hefei"     },
+  { name: "芜湖",   slug: "wuhu"      },
+  { name: "马鞍山", slug: "maanshan"  },
+  { name: "滁州",   slug: "chuzhou"   },
+  { name: "铜陵",   slug: "tongling"  },
+  { name: "安庆",   slug: "anqing"    },
+  { name: "宣城",   slug: "xuancheng" },
+  { name: "蚌埠",   slug: "bengbu"    },
+  { name: "淮南",   slug: "huainan"   },
+  { name: "六安",   slug: "luan"      },
+  { name: "池州",   slug: "chizhou"   },
+  { name: "阜阳",   slug: "fuyang"    },
   { name: "上海",   slug: "shanghai"  },
   { name: "苏州",   slug: "suzhou"    },
   { name: "昆山",   slug: "kunshan"   },
@@ -56,10 +69,6 @@ const regions = [
   { name: "宁波",   slug: "ningbo"    },
   { name: "嘉兴",   slug: "jiaxing"   },
   { name: "湖州",   slug: "huzhou"    },
-  { name: "合肥",   slug: "hefei"     },
-  { name: "芜湖",   slug: "wuhu"      },
-  { name: "马鞍山", slug: "maanshan"  },
-  { name: "滁州",   slug: "chuzhou"   },
 ];
 
 const cases = [
@@ -110,8 +119,8 @@ const steps = [
 const faqs = [
   { q: "废旧电缆回收价格怎么算？一米多少钱？", a: "废旧电缆回收通常按重量和材质评估，不能只按长度报价。价格主要取决于铜/铝芯含量、线径、屏蔽结构、外护套、现场拆卸难度和当日金属行情。建议拍铭牌和实物图发微信，我们可先给出初步范围，再现场称重确认。" },
   { q: "二手变压器回收需要提供哪些信息？", a: "建议提前拍摄变压器铭牌照片（含型号、容量、电压、生产厂家、出厂日期）、外观实景图及台数，通过微信或电话发给我们。我们会根据品牌、容量、使用年限、外观状态快速给出初步收购意向，支持上门看货确认最终价格。" },
-  { q: "服务范围覆盖哪些城市？", a: "主要覆盖长三角地区及安徽省，包括上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州，以及安徽省合肥、芜湖、马鞍山、滁州等主要城市均可上门服务。非核心城市的整厂拆除项目也可来电协商。" },
-  { q: "工厂搬迁设备处理多久可以上门？", a: "电话或微信沟通需求并发送设备图片后，我们通常可在 1–3 个工作日内安排上门评估；急单可优先协调，根据项目规模灵活排期。长三角核心区域最快 24 小时内到场。" },
+  { q: "服务范围覆盖哪些城市？", a: "以安徽为重点覆盖合肥、芜湖、马鞍山、滁州、铜陵、安庆、宣城、蚌埠、淮南、六安、池州、阜阳等工业城市，同时承接上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州等长三角项目。非核心城市的整厂拆除项目也可来电协商。" },
+  { q: "工厂搬迁设备处理多久可以上门？", a: "电话或微信沟通需求并发送设备图片后，我们通常可在 1–3 个工作日内安排上门评估；急单可优先协调，根据项目规模灵活排期。安徽重点城市与长三角核心区域可优先排期。" },
   { q: "支持油浸式和干式变压器回收吗？", a: "支持。我们回收 S9/S11/S13/SCB10/SCB13 等油浸式与干式变压器，及配套开关柜（GGD、GCK、KYN28）、配电柜、母线槽等配电设备，无论单台还是整套配电房均可咨询，不限规模。" },
   { q: "铜芯电缆与铝芯电缆回收价差大吗？", a: "差距较大。铜芯和铝芯要分开评估，实际价格受芯材、重量、线径、护套、钢带铠装和现场清运条件影响。建议现场称重并核对材质后再确认最终报价。" },
   { q: "回收过程是否开具正规单据？", a: "会。我们提供正规回收交接单、过磅单、收据/发票（根据客户需求类型开具），资产处置流程合规，方便企业财务做账及内部审计留痕。大宗业务可签订正式合同。" },
@@ -140,7 +149,7 @@ const trustStats = [
   {
     head: "覆盖",
     sub: "14 城上门",
-    label: "长三角 10 城 + 安徽 4 城",
+    label: "安徽重点城市 + 长三角覆盖",
   },
 ];
 
@@ -251,7 +260,7 @@ export default function App() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <div>
             <div className="text-sm font-semibold tracking-widest text-zinc-100 sm:text-base">新兴电力设备</div>
-            <div className="mt-0.5 text-[10px] tracking-wide text-zinc-500">长三角及安徽 · 废旧电缆与变压器专业团队</div>
+            <div className="mt-0.5 text-[10px] tracking-wide text-zinc-500">安徽及长三角 · 废旧电缆与变压器专业团队</div>
           </div>
           <nav className="hidden items-center gap-6 text-xs font-medium tracking-wider text-zinc-400 lg:flex" aria-label="主导航">
             {[
@@ -319,7 +328,7 @@ export default function App() {
             <div className="flex flex-col justify-center">
               <div className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] text-zinc-400">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                长三角 10 城 + 安徽 4 城 · 上门评估
+                安徽重点城市 + 长三角覆盖 · 上门评估
               </div>
 
               <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
@@ -327,11 +336,11 @@ export default function App() {
                 <br />
                 二手变压器买卖
                 <br />
-                <span className="text-zinc-300 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">长三角 · 上门服务</span>
+                <span className="text-zinc-300 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">安徽 · 上门服务</span>
               </h1>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-                新兴电力设备承接长三角及安徽地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">报价依据清楚 · 现场过磅结算 · 提供正规票据</strong>。
+                新兴电力设备以安徽为重点，承接安徽及长三角地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">报价依据清楚 · 现场过磅结算 · 提供正规票据</strong>。
               </p>
 
               {/* 信任小徽章 */}
@@ -371,7 +380,7 @@ export default function App() {
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10">
                 <img
                   src="/image/新兴电力回收-铜芯电缆盘矩阵.webp"
-                  alt="长三角及安徽专业废旧电缆回收——铜芯电缆盘规模化堆场"
+                  alt="安徽及长三角专业废旧电缆回收——铜芯电缆盘规模化堆场"
                   width="1600" height="1000"
                   loading="eager"
                   fetchpriority="high"
@@ -383,7 +392,7 @@ export default function App() {
                 <div className="absolute bottom-5 left-5 right-5 flex gap-3">
                   <div className="flex-1 rounded-xl border border-white/10 bg-zinc-950/80 px-4 py-3 backdrop-blur-xl">
                     <div className="text-[10px] text-zinc-500">服务覆盖</div>
-                    <div className="mt-0.5 text-xs font-semibold text-zinc-200">上海 · 苏州 · 无锡 · 南京 · 杭州 · 合肥…</div>
+                    <div className="mt-0.5 text-xs font-semibold text-zinc-200">合肥 · 芜湖 · 马鞍山 · 滁州 · 铜陵 · 安庆…</div>
                   </div>
                   <div className="rounded-xl border border-emerald-400/20 bg-emerald-950/60 px-4 py-3 backdrop-blur-xl">
                     <div className="text-[10px] text-emerald-400">服务时段</div>
@@ -539,9 +548,9 @@ export default function App() {
           <div className="grid gap-14 lg:grid-cols-[1fr_1.2fr] lg:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">Service Regions</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">覆盖长三角<br/>及安徽主要城市</h2>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">覆盖安徽<br/>及长三角主要城市</h2>
               <p className="mt-5 text-sm leading-7 text-zinc-400">
-                服务范围涵盖上海全市、江苏省、浙江省主要城市及安徽省核心城市。其他区域可来电确认可行性。
+                服务范围以安徽为重点，覆盖合肥、芜湖、马鞍山、滁州、铜陵、安庆、宣城、蚌埠、淮南、六安、池州、阜阳等城市，同时承接上海、江苏、浙江主要工业区项目。
               </p>
               <a href={PHONE_TEL} className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-5 py-2.5 text-sm font-semibold text-zinc-300 transition hover:bg-white/10 hover:text-white">
                 来电确认服务城市
@@ -819,7 +828,7 @@ export default function App() {
                       <div className="text-xs text-zinc-500">公司地址</div>
                       <div className="mt-0.5 text-sm font-semibold text-zinc-200">上海市嘉定区鹤望路365弄</div>
                       <div className="mt-2 text-[11px] leading-5 text-zinc-500">
-                        长三角及安徽全境上门看货，欢迎实地考察堆场与过磅设备
+                        安徽及长三角全境上门看货，欢迎实地考察堆场与过磅设备
                       </div>
                     </div>
                   </div>
@@ -859,7 +868,7 @@ export default function App() {
                     "二手变压器收购（油浸式 / 干式）",
                     "二手变压器出售与参数对接",
                     "工厂搬迁 / 配电房整体设备处理",
-                    "长三角及安徽主要城市上门评估",
+                    "安徽及长三角主要城市上门评估",
                   ].map(item => (
                     <li key={item} className="flex items-start gap-3 rounded-xl border border-white/8 bg-white/[0.02] px-4 py-3 text-sm text-zinc-400">
                       <span className="mt-0.5 h-4 w-4 shrink-0 rounded-full border border-amber-400/40 bg-amber-400/10 flex items-center justify-center text-[10px] font-bold text-amber-400">✓</span>
@@ -915,7 +924,7 @@ export default function App() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             <div>
               <div className="text-sm font-semibold text-zinc-200">新兴电力设备</div>
-              <p className="mt-3 text-xs leading-6 text-zinc-500">长三角及安徽专业废旧电缆回收与二手变压器回收出售服务商</p>
+              <p className="mt-3 text-xs leading-6 text-zinc-500">安徽及长三角专业废旧电缆回收与二手变压器回收出售服务商</p>
             </div>
             <div>
               <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">主营业务</div>
@@ -965,7 +974,7 @@ export default function App() {
             </div>
           </div>
           <div className="mt-6 flex flex-col gap-2 border-t border-white/[0.06] pt-6 text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
-            <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器回收</div>
+            <div>© 2026 新兴电力设备 · 安徽及长三角废旧电缆与二手变压器回收</div>
           </div>
         </div>
       </footer>

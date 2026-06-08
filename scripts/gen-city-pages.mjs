@@ -95,6 +95,60 @@ const CITIES = [
     context:"滁州紧邻南京，是长三角产业转移承接重镇。天长仪表电缆产业、来安汊河轨道交通装备、全椒家电配套带动工厂电气设备频繁更换，二手变压器采购与老设备回收需求并存。",
     landmark:"滁州经济技术开发区、天长经济开发区、来安汊河轨道交通装备产业园",
     caseNote:"来安汊河某轨交装备厂变电所扩建，本司调配 SCB10-1600kVA 干式变压器 2 台，并回收旧 S9 变压器 1 台。" },
+  { slug:"anhui",     name:"安徽",   prov:"安徽省", geo:"CN-34",
+    areas:["合肥","芜湖","马鞍山","滁州","铜陵","安庆","宣城","蚌埠","淮南","六安","池州","阜阳"],
+    context:"安徽承接长三角制造业转移，合肥新能源汽车与新型显示、芜湖汽车与机器人、马鞍山钢铁重工、滁州家电与轨交装备、铜陵有色金属、安庆化工与装备制造等产业带形成稳定的电力设备更新需求。新兴电力设备以安徽为重点服务区域，承接废旧电缆、二手变压器、开关柜、配电柜、整厂拆除设备处理等项目。",
+    landmark:"合肥经开区、合肥高新区、芜湖经开区、马鞍山经开区、滁州经开区、铜陵经开区",
+    caseNote:"安徽典型场景：工厂扩产、园区搬迁、配电房改造、老厂腾退，常见处置对象为 SCB 干式变压器、S11/S13 油浸式变压器、铜芯电缆、铝芯电缆、高低压开关柜。" },
+  { slug:"tongling",  name:"铜陵",   prov:"安徽省", geo:"CN-34",
+    areas:["铜官区","义安区","郊区","枞阳","铜陵经开区","狮子山高新区"],
+    context:"铜陵是安徽重要有色金属与化工基地，铜冶炼、电子材料、装备制造、港口物流企业集中，厂区改造与设备更新会产生大量高低压电缆、变压器、配电柜和电机水泵处置需求。",
+    landmark:"铜陵经济技术开发区、狮子山高新区、义安经济开发区",
+    caseNote:"铜陵典型场景：有色金属、化工、电子材料企业配电系统改造，常见回收品类为铜芯电缆、油浸式变压器、KYN28 高压柜和低压配电柜。" },
+  { slug:"anqing",   name:"安庆",   prov:"安徽省", geo:"CN-34",
+    areas:["迎江区","大观区","宜秀区","怀宁","桐城","潜山","太湖","望江"],
+    context:"安庆石化、汽车零部件、纺织服装和装备制造产业基础较强，老厂区技改、化工园区更新、县域工业园扩建带来废旧电缆、二手变压器和配电房拆改需求。",
+    landmark:"安庆经开区、安庆高新区、桐城经开区、怀宁经开区",
+    caseNote:"安庆典型场景：化工、汽配、纺织和装备制造企业的配电房升级，常见处置对象为油浸变压器、铝芯电缆、铜芯动力电缆和开关柜。" },
+  { slug:"xuancheng", name:"宣城",   prov:"安徽省", geo:"CN-34",
+    areas:["宣州区","郎溪","广德","宁国","泾县","绩溪","旌德"],
+    context:"宣城承接苏浙沪产业转移，宁国汽车零部件、广德电子电路、郎溪装备制造、宣州工业园区企业密集，产线扩建与厂房腾退时电缆、变压器、开关柜处置需求明显。",
+    landmark:"宣城经开区、广德经开区、宁国经开区、郎溪经开区",
+    caseNote:"宣城典型场景：汽车零部件、电子电路、装备制造企业的生产线调整，常见回收品类为 SCB 干式变压器、控制电缆、铜芯电力电缆和低压配电柜。" },
+  { slug:"bengbu",   name:"蚌埠",   prov:"安徽省", geo:"CN-34",
+    areas:["龙子湖区","蚌山区","禹会区","淮上区","怀远","五河","固镇"],
+    context:"蚌埠玻璃新材料、电子信息、生物化工、装备制造产业持续发展，工业园区老旧配电设施更新、厂房搬迁和设备清退会产生二手变压器、电缆、配电柜打包处置需求。",
+    landmark:"蚌埠高新区、蚌埠经开区、怀远经开区、固镇经开区",
+    caseNote:"蚌埠典型场景：玻璃新材料、电子信息、装备制造工厂配电房改造，常见处置对象为油浸式变压器、低压柜、铜铝芯电缆。" },
+  { slug:"huainan",  name:"淮南",   prov:"安徽省", geo:"CN-34",
+    areas:["田家庵区","大通区","谢家集区","八公山区","潘集区","凤台","寿县"],
+    context:"淮南能源、电力、煤化工和新材料产业集中，矿区、化工园区、老工业厂房更新时，常见大容量变压器、高压电缆、开关柜和电机水泵等电气设备处置项目。",
+    landmark:"淮南经开区、潘集煤化工园区、寿县新桥产业园",
+    caseNote:"淮南典型场景：能源化工、矿区配套、园区厂房升级，常见回收品类为 10kV 高压电缆、油浸式变压器、高低压开关柜。" },
+  { slug:"luan",     name:"六安",   prov:"安徽省", geo:"CN-34",
+    areas:["金安区","裕安区","叶集区","霍山","舒城","金寨","霍邱"],
+    context:"六安装备制造、电子信息、新能源、绿色食品加工产业发展较快，霍山、舒城、金寨等县域工业园扩建与搬迁时，常见电缆、变压器、配电柜、电机水泵回收需求。",
+    landmark:"六安经开区、金安经开区、舒城经开区、金寨现代产业园",
+    caseNote:"六安典型场景：县域工业园扩建、老厂区改造、生产线搬迁，常见处置对象为干式变压器、铝芯电缆、低压配电柜和电机水泵。" },
+  { slug:"chizhou",  name:"池州",   prov:"安徽省", geo:"CN-34",
+    areas:["贵池区","东至","石台","青阳","江南产业集中区","池州经开区"],
+    context:"池州新材料、非金属矿深加工、装备制造和江南产业集中区持续承接长三角项目，园区建设与老厂改造带来配电设备、废旧电缆、变压器回收需求。",
+    landmark:"池州经开区、江南新兴产业集中区、东至经开区",
+    caseNote:"池州典型场景：新材料、矿物加工、装备制造企业的配电系统更新，常见回收品类为铜芯电缆、油浸式变压器、配电柜和母线槽。" },
+  { slug:"fuyang",   name:"阜阳",   prov:"安徽省", geo:"CN-34",
+    areas:["颍州区","颍东区","颍泉区","临泉","太和","阜南","颍上","界首"],
+    context:"阜阳农产品加工、装备制造、新能源材料、医药化工等产业园区加速发展，厂房新建扩容、老设备退役和园区搬迁会形成电缆、变压器、开关柜回收需求。",
+    landmark:"阜阳经开区、阜合产业园、界首高新区、太和经开区",
+    caseNote:"阜阳典型场景：园区工厂扩建、老厂退租、配电容量升级，常见处置对象为干式变压器、低压配电柜、铜铝芯电缆。" },
+];
+
+const ANHUI_FOCUS_SLUGS = new Set([
+  "anhui","hefei","wuhu","maanshan","chuzhou","tongling","anqing",
+  "xuancheng","bengbu","huainan","luan","chizhou","fuyang",
+]);
+const priorityCities = (items = CITIES) => [
+  ...items.filter(c => ANHUI_FOCUS_SLUGS.has(c.slug)),
+  ...items.filter(c => !ANHUI_FOCUS_SLUGS.has(c.slug)),
 ];
 
 /* ═══ 3 大业务（用于业务中枢页）═══ */
@@ -103,9 +157,9 @@ const SERVICES_HUB = [
     slug: "cable-recycling",
     name: "废旧电缆回收",
     kicker: "Cable Recycling",
-    title: "废旧电缆回收（长三角及安徽）· 铜芯 / 铝芯 / 高压电缆上门评估结算 | 新兴电力设备",
+    title: "安徽废旧电缆回收（合肥芜湖马鞍山滁州）· 铜芯 / 铝芯 / 高压电缆 | 新兴电力设备",
     h1html: "<em>废旧电缆</em>回收<br/>铜芯 · 铝芯 · 高压电缆",
-    desc: "长三角及安徽区域废旧电缆上门评估结算：铜芯 YJV / 铝芯 YJLV / 10kV·35kV 高压交联电缆 / 低压电力电缆 / 控制电缆 / 电机引出线。按材质、规格、重量、拆解难度和当日行情综合评估，现场过磅，正规单据。",
+    desc: "安徽及长三角区域废旧电缆上门评估结算：合肥、芜湖、马鞍山、滁州、铜陵、安庆等地铜芯 YJV / 铝芯 YJLV / 10kV·35kV 高压交联电缆 / 低压电力电缆 / 控制电缆 / 电机引出线。按材质、规格、重量、拆解难度和当日行情综合评估，现场过磅，正规单据。",
     kw: [
       "废旧电缆回收","废旧电缆回收价格","铜芯电缆回收","铝芯电缆回收","高压电缆回收",
       "YJV电缆回收","YJLV电缆回收","10kV电缆回收","35kV电缆回收","工地余料电缆回收",
@@ -153,7 +207,7 @@ const SERVICES_HUB = [
       { q:"工地剩余新电缆能按接近新线价回收吗？", a:"可以。未使用的工地余料、库存积压新电缆按接近新线价评估，远高于废线价格，具体看品牌、规格、是否原包装。" },
       { q:"是否必须剥皮？", a:"不强制。大批量可毛重按折算系数收购；小批量或需要更高单价可现场剥皮，双方确认净重后结算。" },
       { q:"回收过程开单据吗？", a:"开。提供正规回收交接单、过磅单、收据或发票，方便企业财务做账、资产处置合规留痕。" },
-      { q:"覆盖哪些城市？", a:"长三角核心区（上海、苏州、无锡、南京、杭州、宁波等）与安徽（合肥、芜湖、马鞍山、滁州等）全域上门，核心区 24 小时内到场。" },
+      { q:"覆盖哪些城市？", a:"以安徽为重点覆盖合肥、芜湖、马鞍山、滁州、铜陵、安庆、宣城、蚌埠、淮南、六安、池州、阜阳等城市，同时承接上海、苏州、无锡、南京、杭州、宁波等长三角项目。" },
     ],
   },
   {
@@ -162,7 +216,7 @@ const SERVICES_HUB = [
     kicker: "Transformer",
     title: "二手变压器回收出售 · 油浸式 / 干式 / 箱式变压器（S9·S11·SCB10·SCB13）| 新兴电力设备",
     h1html: "<em>二手变压器</em>回收出售<br/>油浸 · 干式 · 箱变",
-    desc: "长三角及安徽区域二手变压器回收与出售：S9/S11/S13 油浸式变压器、SCB10/SCB13 干式变压器、YB/ZGS 箱式变电站，10kV/35kV 电压等级，按品牌、容量、年限、状态评估，既可收购也可对接二手库存采购。",
+    desc: "安徽及长三角区域二手变压器回收与出售：合肥、芜湖、马鞍山、滁州、铜陵、安庆等地 S9/S11/S13 油浸式变压器、SCB10/SCB13 干式变压器、YB/ZGS 箱式变电站，10kV/35kV 电压等级，按品牌、容量、年限、状态评估，既可收购也可对接二手库存采购。",
     kw: [
       "二手变压器回收","二手变压器出售","二手变压器价格","油浸式变压器回收","干式变压器回收",
       "S9变压器回收","S11变压器回收","S13变压器回收","SCB10变压器","SCB13变压器",
@@ -200,7 +254,7 @@ const SERVICES_HUB = [
           ["适合场景","产线扩容、应急备机、低成本上电、临时工地"],
           ["验货流程","现场查看铭牌 / 绝缘耐压 / 历史检测报告"],
           ["质保","提供有限质保期限，支持上门安装调试对接"],
-          ["运输","自有运输资源，长三角及安徽全域配送"],
+          ["运输","自有运输资源，安徽及长三角全域配送"],
         ],
       },
     ],
@@ -219,7 +273,7 @@ const SERVICES_HUB = [
     kicker: "Factory Demolition",
     title: "工厂拆除设备处理 · 整厂搬迁 / 配电房拆改 / 车间清退一站式处置 | 新兴电力设备",
     h1html: "<em>工厂拆除</em>设备处理<br/>整厂搬迁 · 配电房拆改",
-    desc: "长三角及安徽区域工厂拆除设备处理：整厂搬迁、车间清退、配电房拆改、生产线拆除的电气设备一站式回收与腾退。变压器、开关柜、母线槽、电机水泵、控制柜、电缆线路打包评估，快速清场。",
+    desc: "安徽及长三角区域工厂拆除设备处理：整厂搬迁、车间清退、配电房拆改、生产线拆除的电气设备一站式回收与腾退。合肥、芜湖、马鞍山、滁州、铜陵、安庆等安徽工业城市可优先安排上门，变压器、开关柜、母线槽、电机水泵、控制柜、电缆线路打包评估，快速清场。",
     kw: [
       "工厂拆除","工厂拆除设备处理","整厂搬迁回收","配电房拆改","车间设备清退",
       "工厂腾退","开关柜回收","配电柜回收","母线槽回收","电机水泵回收",
@@ -439,6 +493,56 @@ const LOCAL_TRANSFORMER_PAGES = [
     landmark: "苏州高新区、浒墅关经开区、苏州科技城",
     context: "苏州高新区装备制造、电子信息和研发生产企业集中，旧厂改造、配电容量升级和生产线调整时，可对二手变压器、配电柜、母线槽及旧电缆进行打包评估。",
   },
+  {
+    slug: "hefei/gaoxin-transformer-recycling",
+    citySlug: "hefei",
+    cityName: "合肥",
+    areaName: "高新区",
+    titleArea: "合肥高新区",
+    areas: ["合肥高新区", "柏堰科技园", "南岗科技园", "蜀山经开区", "新桥科学城", "运河新城"],
+    landmark: "合肥高新区、柏堰科技园、新桥科学城",
+    context: "合肥高新区聚集新型显示、集成电路、智能制造和研发生产企业，工厂扩产、配电容量升级和实验线调整时，经常需要处理 SCB 干式变压器、油浸式变压器、箱变、配电柜和铜芯电缆。",
+  },
+  {
+    slug: "hefei/economic-zone-transformer-recycling",
+    citySlug: "hefei",
+    cityName: "合肥",
+    areaName: "经开区",
+    titleArea: "合肥经开区",
+    areas: ["合肥经开区", "肥西产城融合示范区", "桃花工业园", "始信路", "莲花路", "临湖"],
+    landmark: "合肥经开区、肥西产城融合示范区、桃花工业园",
+    context: "合肥经开区汽车、家电、新能源和装备制造企业集中，产线扩建、老厂改造、设备退役时，常见处置对象包括干式变压器、油浸式变压器、低压配电柜、母线槽和废旧电缆。",
+  },
+  {
+    slug: "wuhu/economic-zone-transformer-recycling",
+    citySlug: "wuhu",
+    cityName: "芜湖",
+    areaName: "经开区",
+    titleArea: "芜湖经开区",
+    areas: ["芜湖经开区", "鸠江开发区", "三山经开区", "弋江高新区", "奇瑞产业园", "无为经开区"],
+    landmark: "芜湖经济技术开发区、奇瑞汽车产业园、三山经济开发区",
+    context: "芜湖经开区汽车整车、零部件、机器人和智能装备企业密集，工厂配电房改造和设备更新时，可对变压器、开关柜、电缆、母线槽进行打包评估。",
+  },
+  {
+    slug: "maanshan/dangtu-transformer-recycling",
+    citySlug: "maanshan",
+    cityName: "马鞍山",
+    areaName: "当涂",
+    titleArea: "马鞍山当涂",
+    areas: ["当涂经开区", "太白镇", "姑孰镇", "博望高新区", "郑蒲港新区", "雨山经开区"],
+    landmark: "当涂经济开发区、博望高端装备制造产业园、郑蒲港新区",
+    context: "当涂、博望和郑蒲港板块机械加工、钢铁配套、港口物流企业较多，老厂搬迁、变电站升级和产线调整会产生大容量变压器、高压电缆、配电柜处置需求。",
+  },
+  {
+    slug: "chuzhou/laian-transformer-recycling",
+    citySlug: "chuzhou",
+    cityName: "滁州",
+    areaName: "来安",
+    titleArea: "滁州来安",
+    areas: ["来安汊河", "汊河经开区", "滁州经开区", "全椒经开区", "天长经开区", "南谯区"],
+    landmark: "来安汊河轨道交通装备产业园、滁州经开区、全椒经开区",
+    context: "滁州来安汊河承接南京都市圈制造项目，轨道交通装备、家电配套、电子加工企业集中，工厂退租、配电房改造时常见二手变压器、箱变、开关柜和电缆回收需求。",
+  },
 ];
 
 /* ═══ 通用 FAQ（3 条）+ 城市特有 FAQ（3 条）═══ */
@@ -525,7 +629,7 @@ body{padding-bottom:80px}
 /* ═══ 公用页头 / 页脚 ═══ */
 const headerHtml = (activeSlug) => `
 <header><div class="wrap">
-  <a href="/" class="brand">新兴电力设备<small>长三角及安徽 · 电力设备与电缆回收</small></a>
+  <a href="/" class="brand">新兴电力设备<small>安徽及长三角 · 电力设备与电缆回收</small></a>
   <nav class="hnav">
     <a href="/cable-recycling/" ${activeSlug==="cable-recycling"?'style="color:#fcd34d"':""}>废旧电缆</a>
     <a href="/transformer-recycling/" ${activeSlug==="transformer-recycling"?'style="color:#fcd34d"':""}>二手变压器</a>
@@ -544,7 +648,7 @@ const mobileCtaHtml = `
 
 const footerHtml = () => `
 <footer><div class="wrap">
-  <div>© 2026 新兴电力设备 · 长三角及安徽废旧电缆与二手变压器专业回收</div>
+  <div>© 2026 新兴电力设备 · 安徽及长三角废旧电缆与二手变压器专业回收</div>
   <div>官网：www.xinxingdianlis.com · 电话：${PHONE} · 微信：${WECHAT}</div>
   <div style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;color:#71717a;font-size:11px">
     <span>回收指南：</span>
@@ -562,7 +666,7 @@ function renderCity(c) {
     `${c.name}铜芯电缆回收`, `${c.name}油浸式变压器`, `${c.name}干式变压器`,
   ].join(",");
   const canonical = `${SITE}/${c.slug}/`;
-  const otherCities = CITIES.filter(x => x.slug !== c.slug);
+  const otherCities = priorityCities(CITIES.filter(x => x.slug !== c.slug));
   // 去掉每条 FAQ 标题尾巴的 "（城市）" 后缀 —— 14 城重复同一标题反而被搜索引擎判堆砌；FAQ JSON-LD 内的城市信号靠 areaServed 即可
   const faqs = [...commonFaqs, ...cityLocalFaqs(c)];
 
@@ -707,7 +811,7 @@ function renderService(s) {
   const ldService = {
     "@context":"https://schema.org","@type":"Service",
     serviceType: s.name, provider:{ "@type":"LocalBusiness", name:"新兴电力设备", telephone:PHONE, url:SITE },
-    areaServed: CITIES.map(c => ({ "@type":"City", name:c.name })),
+    areaServed: priorityCities().map(c => ({ "@type":"City", name:c.name })),
     description: s.desc, url:canonical,
   };
   const ldBreadcrumb = {
@@ -755,7 +859,7 @@ ${headerHtml(s.slug)}
     <nav aria-label="面包屑" style="font-size:12px;color:#71717a;margin-bottom:8px">
       <a href="/">首页</a> <span style="color:#3f3f46">›</span> <span style="color:#d4d4d8">${s.name}</span>
     </nav>
-    <span class="chip chip-amber">● ${s.kicker} · 长三角及安徽全域</span>
+    <span class="chip chip-amber">● ${s.kicker} · 安徽及长三角全域</span>
     <h1>${s.h1html}</h1>
     <p>${s.desc}</p>
     <div class="ctas" style="margin-top:24px">
@@ -789,7 +893,7 @@ ${headerHtml(s.slug)}
     <h2>${s.name}——覆盖城市</h2>
     <p class="lead">点击进入对应城市页面，查看本地服务区域、案例与联系方式。</p>
     <div class="grid grid-4">
-      ${CITIES.map(c => {
+      ${priorityCities().map(c => {
         const href = s.slug === "transformer-recycling" ? `/${c.slug}/transformer-recycling/` : `/${c.slug}/`;
         return `<a class="area-tag" href="${href}">${c.name}${s.name.replace("与出售","")}</a>`;
       }).join("")}
@@ -872,7 +976,7 @@ function renderCityTransformer(c) {
     mainEntity: localFaqs.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   };
 
-  const nearby = CITIES.filter(x => x.slug !== c.slug).slice(0, 8);
+  const nearby = priorityCities(CITIES.filter(x => x.slug !== c.slug)).slice(0, 10);
   const localPages = LOCAL_TRANSFORMER_PAGES.filter(p => p.citySlug === c.slug);
 
   return `<!doctype html>
@@ -1218,9 +1322,9 @@ ${headerHtml("")}
   <section id="regions"><div class="wrap">
     <div class="kicker">Coverage</div>
     <h2>服务城市</h2>
-    <p class="lead">长三角及安徽主要城市均可上门评估。点击城市查看本地服务范围与案例参考。</p>
+    <p class="lead">安徽及长三角主要城市均可上门评估。点击城市查看本地服务范围与案例参考。</p>
     <div class="grid grid-4">
-      ${CITIES.map(c => `<a class="area-tag" href="/${c.slug}/">${c.name}${g.service}</a>`).join("")}
+      ${priorityCities().map(c => `<a class="area-tag" href="/${c.slug}/">${c.name}${g.service}</a>`).join("")}
     </div>
   </div></section>
 
@@ -1262,8 +1366,8 @@ function renderSitemap() {
   const urls = [
     { loc:`${SITE}/`, pri:"1.0", freq:"weekly" },
     ...SERVICES_HUB.map(s => ({ loc:`${SITE}/${s.slug}/`, pri:"0.9", freq:"monthly" })),
-    ...CITIES.map(c => ({ loc:`${SITE}/${c.slug}/`, pri:"0.8", freq:"monthly" })),
-    ...CITIES.map(c => ({ loc:`${SITE}/${c.slug}/transformer-recycling/`, pri:"0.75", freq:"monthly" })),
+    ...priorityCities().map(c => ({ loc:`${SITE}/${c.slug}/`, pri:ANHUI_FOCUS_SLUGS.has(c.slug) ? "0.86" : "0.8", freq:"monthly" })),
+    ...priorityCities().map(c => ({ loc:`${SITE}/${c.slug}/transformer-recycling/`, pri:ANHUI_FOCUS_SLUGS.has(c.slug) ? "0.8" : "0.75", freq:"monthly" })),
     ...LOCAL_TRANSFORMER_PAGES.map(p => ({ loc:`${SITE}/${p.slug}/`, pri:"0.72", freq:"monthly" })),
     ...GUIDE_PAGES.map(g => ({ loc:`${SITE}/${g.slug}/`, pri:"0.7", freq:"monthly" })),
   ];
