@@ -38,8 +38,8 @@ const services = [
 
 const advantages = [
   { icon: "↑", title: "报价透明", desc: "按材质、规格、重量、成色、行情与清运条件现场说明报价依据。" },
-  { icon: "◎", title: "上门评估", desc: "全程免费上门，专业人员现场核查铭牌、型号与数量。" },
-  { icon: "⚡", title: "当日响应", desc: "7×12h 咨询接待，确认信息后最快当日安排上门排期。" },
+  { icon: "◎", title: "上门评估", desc: "符合上门条件的项目可预约现场核查铭牌、型号、数量和装车条件。" },
+  { icon: "⚡", title: "预约响应", desc: "收到设备照片、数量和位置后，根据项目规模与路线确认上门排期。" },
   { icon: "✓", title: "手续合规", desc: "提供正规交接单据与收据，资产处置流程合规，方便财务做账。" },
   { icon: "🏙", title: "区域覆盖", desc: "以安徽为重点，长三角多城市均有服务网络，就近安排上门评估。" },
   { icon: "💬", title: "微信图片沟通", desc: "发送铭牌图与实景图，快速预判价值，省去往返成本。" },
@@ -121,9 +121,9 @@ const faqs = [
   { q: "二手变压器回收需要提供哪些信息？", a: "建议提前拍摄变压器铭牌照片（含型号、容量、电压、生产厂家、出厂日期）、外观实景图及台数，通过微信或电话发给我们。我们会根据品牌、容量、使用年限、外观状态快速给出初步收购意向，支持上门看货确认最终价格。" },
   { q: "服务范围覆盖哪些城市？", a: "以安徽为重点覆盖合肥、芜湖、马鞍山、滁州、铜陵、安庆、宣城、蚌埠、淮南、六安、池州、阜阳等工业城市，同时承接上海、苏州、昆山、无锡、常州、南京、杭州、宁波、嘉兴、湖州等长三角项目。非核心城市的整厂拆除项目也可来电协商。" },
   { q: "工厂搬迁设备处理多久可以上门？", a: "电话或微信沟通需求并发送设备图片后，我们通常可在 1–3 个工作日内安排上门评估；急单可优先协调，根据项目规模灵活排期。安徽重点城市与长三角核心区域可优先排期。" },
-  { q: "支持油浸式和干式变压器回收吗？", a: "支持。我们回收 S9/S11/S13/SCB10/SCB13 等油浸式与干式变压器，及配套开关柜（GGD、GCK、KYN28）、配电柜、母线槽等配电设备，无论单台还是整套配电房均可咨询，不限规模。" },
+  { q: "支持油浸式和干式变压器回收吗？", a: "S9/S11/S13/SCB10/SCB13 等油浸式与干式变压器，以及配套开关柜、配电柜、母线槽等设备均可先提供资料咨询，是否安排上门按设备状态、数量和位置确认。" },
   { q: "铜芯电缆与铝芯电缆回收价差大吗？", a: "差距较大。铜芯和铝芯要分开评估，实际价格受芯材、重量、线径、护套、钢带铠装和现场清运条件影响。建议现场称重并核对材质后再确认最终报价。" },
-  { q: "回收过程是否开具正规单据？", a: "会。我们提供正规回收交接单、过磅单、收据/发票（根据客户需求类型开具），资产处置流程合规，方便企业财务做账及内部审计留痕。大宗业务可签订正式合同。" },
+  { q: "回收过程可以提供哪些单据？", a: "可在项目确认前约定合同、交接单、过磅单、结算凭证和票据要求，实际提供内容以交易主体条件及双方合同约定为准。" },
   { q: "高压电缆（10kV / 35kV）也回收吗？", a: "回收。YJV22、YJLV22 等 10kV/35kV 交联聚乙烯高压电缆是我们的主要回收品类之一。由于截面大、铜含量高，回收单价相对较好，工程剩余、改造拆除的新旧高压电缆都可处理。" },
   { q: "工厂整体拆除，除了电缆变压器还能处理什么？", a: "整厂拆除业务中，我们可一并处理配电柜/开关柜、母线槽、电机、水泵、控制柜、UPS 等电气设备，以及部分金属结构件。可打包评估报价，一站式完成场地腾退。" },
   { q: "如何防止被低价收购？", a: "建议：1) 同时咨询 2–3 家回收方对比报价；2) 要求对方说明材质、重量、行情和清运成本等报价依据；3) 过磅时到场监督；4) 查看对方是否具备再生资源经营资质。我们支持现场核对，欢迎对比。" },
@@ -144,7 +144,7 @@ const trustStats = [
   {
     head: "单据",
     sub: "对公结算",
-    label: "过磅单 收据 发票 财务可入账",
+    label: "合同 交接单 过磅单 按约提供",
   },
   {
     head: "覆盖",
@@ -187,7 +187,7 @@ const serviceSegments = [
     industry: "物业 / 园区 · 配电房改造",
     typical: "住宅小区、产业园区、写字楼配电室",
     scope: "S 系列油浸变压器、低压配电柜、控制电缆、计量设备",
-    method: "支持业委会 / 物业方现场监督，过磅清单当场签字；油浸变压器内残油由我们的危废合作渠道合规处置并留存联单。",
+    method: "支持业委会 / 物业方现场核对，过磅与交接内容按双方确认记录；涉及残油处置时，按当地环保要求和合同责任执行。",
   },
   {
     industry: "电气工程 / 工地余料",
@@ -340,12 +340,12 @@ export default function App() {
               </h1>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
-                新兴电力设备以安徽为重点，承接安徽及长三角地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">报价依据清楚 · 现场过磅结算 · 提供正规票据</strong>。
+                新兴电力设备以安徽为重点，承接安徽及长三角地区废旧电缆回收、二手变压器回收与出售、工厂拆除设备整体处理。<strong className="text-zinc-300">报价依据清楚 · 现场核对结算 · 单据按约提供</strong>。
               </p>
 
               {/* 信任小徽章 */}
               <div className="mt-6 flex flex-wrap gap-2 text-[11px] text-zinc-400">
-                {["✓ 免费上门评估","✓ 当日响应","✓ 现场结算","✓ 正规单据"].map(x => (
+                {["✓ 预约上门评估","✓ 报价依据说明","✓ 现场核对","✓ 单据按约提供"].map(x => (
                   <span key={x} className="rounded-full border border-white/10 bg-white/5 px-3 py-1">{x}</span>
                 ))}
               </div>
@@ -402,7 +402,7 @@ export default function App() {
               </div>
               {/* 右上角浮动徽章 */}
               <div className="absolute -right-3 -top-3 rounded-2xl bg-amber-400 px-4 py-2.5 text-center shadow-xl shadow-amber-400/30">
-                <div className="text-xs font-black tracking-wider text-zinc-950">当日响应</div>
+                <div className="text-xs font-black tracking-wider text-zinc-950">预约响应</div>
                 <div className="text-[9px] font-bold tracking-wider text-zinc-950/70">上门评估</div>
               </div>
             </div>
@@ -510,7 +510,7 @@ export default function App() {
 
             <div className="mt-8 flex flex-col items-start gap-3 rounded-2xl border border-amber-400/15 bg-amber-400/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
               <div className="text-sm leading-6 text-zinc-300">
-                <strong className="text-amber-300">免费获取精准报价：</strong>发送铭牌照片与数量，专人 10 分钟内回复。
+                <strong className="text-amber-300">先做初步判断：</strong>发送铭牌照片、数量和位置，收到资料后回复设备类型与评估要点。
               </div>
               <a href={PHONE_TEL} className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-2.5 text-sm font-bold text-zinc-950 transition hover:-translate-y-0.5">
                 立即获取报价 →
@@ -828,7 +828,7 @@ export default function App() {
                       <div className="text-xs text-zinc-500">公司地址</div>
                       <div className="mt-0.5 text-sm font-semibold text-zinc-200">上海市嘉定区鹤望路365弄</div>
                       <div className="mt-2 text-[11px] leading-5 text-zinc-500">
-                        安徽及长三角全境上门看货，欢迎实地考察堆场与过磅设备
+                        安徽及长三角主要城市可预约上门，具体时间按位置、数量和排期确认
                       </div>
                     </div>
                   </div>
@@ -856,7 +856,7 @@ export default function App() {
                     <div className="mt-0.5 text-base font-bold text-zinc-100">{WECHAT}</div>
                     <div className="mt-2 text-[11px] leading-5 text-zinc-500">
                       发送铭牌图 / 现场图<br/>
-                      <span className="text-amber-300">10 分钟内回复</span>初步报价
+                      <span className="text-amber-300">收到资料后回复</span>初步评估
                     </div>
                   </div>
                 </div>

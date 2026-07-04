@@ -29,7 +29,7 @@ function withSiteHeaders(response, pathname) {
     headers.set("Cache-Control", "public, max-age=31536000, immutable");
   } else if (/\.(?:png|jpe?g|webp|svg|ico)$/i.test(pathname)) {
     headers.set("Cache-Control", "public, max-age=2592000, stale-while-revalidate=86400");
-  } else if (/\/(?:robots\.txt|sitemap\.xml)$/i.test(pathname)) {
+  } else if (/\/(?:robots\.txt|llms\.txt|site\.txt|sitemap\.xml)$/i.test(pathname)) {
     headers.set("Cache-Control", "public, max-age=3600");
   }
 

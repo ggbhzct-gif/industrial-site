@@ -9,6 +9,23 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+# Bing / 必应
+User-agent: Bingbot
+Allow: /
+
+# 搜狗 / 360 / 神马 / 华为
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
 # 字节/豆包相关抓取器
 User-agent: Bytespider
 Allow: /
@@ -17,6 +34,28 @@ User-agent: Doubaobot
 Allow: /
 
 User-agent: TikTokSpider
+Allow: /
+
+# 常见 AI 搜索 / 问答抓取器
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot
 Allow: /
 
 Sitemap: https://www.xinxingdianlis.com/sitemap.xml
