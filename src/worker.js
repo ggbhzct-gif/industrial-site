@@ -43,10 +43,22 @@ function withSiteHeaders(response, pathname) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.protocol !== "https:" || url.hostname !== "www.xinxingdianlis.com") {
+      url.protocol = "https:";
+      url.hostname = "www.xinxingdianlis.com";
+      return Response.redirect(url.toString(), 301);
+    }
+
     const redirectTo = OLD_PATH_REDIRECTS.get(url.pathname);
 
     if (redirectTo) {
       return Response.redirect(new URL(redirectTo, url.origin).toString(), 301);
+    }
+
+    if (!url.pathname.endsWith("/") && !/\/[^/]+\.[^/]+$/.test(url.pathname)) {
+      url.pathname = `${url.pathname}/`;
+      return Response.redirect(url.toString(), 301);
     }
 
     const response = await env.ASSETS.fetch(request);
